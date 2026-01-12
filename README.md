@@ -1,62 +1,60 @@
-# enac-it4r-repo
+# CO2 Calculator — Back Office Docs
 
-Template with licences / github templates and contributing processes
+Back-office user documentation for the EPFL ENAC CO₂ calculator, built with MkDocs and the Material theme.
 
-## For New Repositories
+- Live site: https://epfl-enac.github.io/co2-calculator-back-office-doc/
+- Source docs: docs/
 
-If you're setting up a new repository based on this template:
+## Develop Locally (uv)
 
-1. **First-time setup:**
+We recommend using [uv](https://docs.astral.sh/uv/) for fast, reproducible Python environments.
 
-   ```bash
-   make setup
-   ```
+Requirements: Python 3.11+.
 
-   This will run an interactive script to configure your repository with project-specific details.
+### 1) Install deps
 
-2. **Regular development setup:**
-   ```bash
-   make install
-   ```
-   This installs dependencies and sets up git hooks.
-
-## For Template Development
-
-To set up the development environment and git hooks for working on this template itself, run:
-
-```bash
-make install
+```powershell
+uv pip install -r requirements.txt
 ```
 
-This will install npm dependencies and configure git hooks using Lefthook.
+### 2) Run the docs
 
-## Available Commands
+- Build once:
 
-- `make setup` - **For new repositories**: Interactive setup from template
-- `make install` - Install dependencies and set up git hooks
-- `make clean` - Clean node_modules and package-lock.json
-- `make uninstall` - Remove git hooks and clean dependencies
-- `make help` - Show available commands
+```powershell
+uv run mkdocs build
+```
 
-# Todo when setting up your github repo
+- Serve with live reload:
 
-- [ ] Replace `{ YOUR-REPO-NAME }` in all files by the name of your repo
-- [ ] Replace `{ YOUR-LAB-NAME }` in all files by the name of your lab (.e.G epfl-cryos cf .github/workflows/deploy.yml)
-- [ ] Replace assignees: githubusernameassignee by the github handle of your lead dev
-- [ ] Modifiy or remove the `CITATION.cff` file.
-- [ ] ADD/REMOVE .github/workflows/release-please.yml depending on your proejct.
-  - [ ] Add token for the github action secrets called: MY_RELEASE_PLEASE_TOKEN
+```powershell
+uv run mkdocs serve
+```
 
-# Optional TODOs
+Open http://127.0.0.1:8000/ in your browser.
 
-- If you created a repo outstide the organization EPFL-ENAC, please replace every instances
-- Modify .github/.copilot-instructions.md if need be
-- Check if you need all the labels: https://github.com/EPFL-ENAC/{ YOUR-REPO-NAME }/labels
-- Create your first milestone: https://github.com/EPFL-ENAC/{ YOUR-REPO-NAME }/milestones
-- Protect your branch if you're a pro user: https://github.com/EPFL-ENAC/{ YOUR-REPO-NAME }/settings/branches
-- [Activate discussion](https://github.com/EPFL-ENAC/{ YOUR-REPO-NAME }/settings)
 
-# Helpful links
+## Plugins and Extensions
 
-- [How to format citations ?](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)
-- [Learn how to use github template repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
+Configured in `mkdocs.yml`:
+
+- Material theme features
+- `pymdown-extensions` (details, superfences, math via MathJax)
+- `pymdownx.snippets` for HTML/MD includes
+- `table-reader` (mkdocs-table-reader-plugin) to render tabular data from files
+
+Dependencies are pinned in [requirements.txt](requirements.txt) for consistent local and CI builds.
+
+## CI/CD (GitHub Pages)
+
+- Builds and deploys on pushes to `main` via [.github/workflows/deploy-docs.yml](.github/workflows/deploy-docs.yml).
+- Workflow installs from [requirements.txt](requirements.txt) to ensure the same plugins are available (including `mkdocs-table-reader-plugin`).
+
+## Contributing
+
+- For content changes, edit files under docs/ and open a PR.
+- For build/config changes, update `mkdocs.yml` and/or `requirements.txt` and verify with `uv run mkdocs build`.
+
+## License
+
+See [LICENSE](LICENSE).

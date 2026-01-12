@@ -1,0 +1,60 @@
+site_name: CO2 Calculator — Back Office Docs
+site_description: Back-office user documentation for the EPFL ENAC CO2 calculator.
+site_url: https://epfl-enac.github.io/co2-calculator-back-office-doc/
+repo_name: EPFL-ENAC/co2-calculator-back-office-doc
+repo_url: https://github.com/EPFL-ENAC/co2-calculator-back-office-doc
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.instant
+    - navigation.top
+    - navigation.tabs
+    - navigation.footer
+    - content.code.copy
+    - toc.integrate
+  logo: assets/logo/epfl-logo.svg
+  favicon: assets/logo/epfl-logo.svg
+  palette:
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+plugins:
+  - search
+  - table-reader
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.snippets:
+      base_path:
+        - docs
+      check_paths: true
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+
+nav:
+  - Home: index.md
+  - Changing Text: changetext.md
+  - Acknowledgements: acknowledgements.md
+  - Contact: contact.md

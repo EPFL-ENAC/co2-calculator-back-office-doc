@@ -1,0 +1,206 @@
+Category,Sub-category,Class CD13,Sub-class,Avg Power Active W_1,Avg Power Standby W_1,Avg Power Active W_2,Avg Power Standby W_2
+Scientific equipment,Electrotechnical equipment,Power supplies,,100,0,,
+Scientific equipment,Electrotechnical equipment,Amplifiers,,20,10,,
+Scientific equipment,Electrotechnical equipment,Signal analysis,,10,10,,
+Scientific equipment,Electrotechnical equipment,Calorimeters,,,,20,0.001
+Scientific equipment,Electrotechnical equipment,"Cellule axiale (biaxiale, triaxiale, etc.",,,,0,0
+Scientific equipment,Electrotechnical equipment,Signal generators,,20,10,,
+Scientific equipment,Electrotechnical equipment,Moteurs,Large Motor/Generator,,,12000,0
+Scientific equipment,Electrotechnical equipment,,Small Motor/Actuator,,,200,0
+Scientific equipment,Electrotechnical equipment,,Other Motorized Equipment,,,50,0
+Scientific equipment,Electrotechnical equipment,Multimeters,,,,21,0.003
+Scientific equipment,Electrotechnical equipment,Oscilloscopes,,30,0,,
+Scientific equipment,Electrotechnical equipment,Potentiostat,,,,211,0.001
+Scientific equipment,Electrotechnical equipment,Voltmeter,,,,300,0.03
+Scientific equipment,Electrotechnical equipment,Wattmeter,,,,25,0.005
+Scientific equipment,Electrotechnical equipment,Other electrotechnical equip.,Ultra-Low,,,2,0
+Scientific equipment,Electrotechnical equipment,Other electrotechnical equip.,Low,,,10,0
+Scientific equipment,Electrotechnical equipment,Other electrotechnical equip.,Light Instruments,,,30,0
+Scientific equipment,Electrotechnical equipment,Other electrotechnical equip.,Typical Lab Instruments,,,100,0
+Scientific equipment,Electrotechnical equipment,Other electrotechnical equip.,Performance & Rack Equipment,,,300,0
+Scientific equipment,Electrotechnical equipment,Other electrotechnical equip.,Compact Utility Equipment,,,1000,0
+Scientific equipment,Electrotechnical equipment,Other electrotechnical equip.,Mid-Power Systems,,,5000,0
+Scientific equipment,Electrotechnical equipment,Other electrotechnical equip.,Industrial/High-Power System,,,300000,0
+Scientific equipment,Machine tools,Coaters,,120,20,,
+Scientific equipment,Machine tools,Milling machine,,,,2228,215
+Scientific equipment,Machine tools,3D printer,,90,10,,
+Scientific equipment,Machine tools,Driller,,720,0,,
+Scientific equipment,Machine tools,Press,Arc Welding Power Sources,,,3780,63
+Scientific equipment,Machine tools,Press,Electromechanical Press/Test,,,2150,417
+Scientific equipment,Machine tools,Press,Hydraulic Presses & Molding,,,3700,675
+Scientific equipment,Machine tools,Press,Laboratory Presses & Molding,,,2400,700
+Scientific equipment,Machine tools,Press,Non-Arc Welding Systems,,,5500,150
+Scientific equipment,Machine tools,Press,Precision Micro-Joining Systems,,,540,12
+Scientific equipment,Machine tools,Press,Welding Positioners & Rotators,,,2700,30
+Scientific equipment,Machine tools,Saw,Laboratory Presses & Molding,,,2400,700
+Scientific equipment,Machine tools,Saw,Manual/Non-Powered Devices,,,0,0
+Scientific equipment,Machine tools,Saw,Precision/Low-Power Instruments,,,750,49
+Scientific equipment,Machine tools,Saw,Standard Powered Saws,,,3300,10
+Scientific equipment,Machine tools,Other machine tools,,,,,
+Scientific equipment,Machine tools,Compression & traction machines,Electromechanical Test Machines,,,600,66
+Scientific equipment,Machine tools,Compression & traction machines,High-Force Hydraulic Machines,,,8300,1463
+Scientific equipment,Machine tools,Compression & traction machines,High-Intensity Lamps/UV,,,610,12
+Scientific equipment,Machine tools,Compression & traction machines,Laboratory Mixers/Mills,,,980,75
+Scientific equipment,Machine tools,Compression & traction machines,Machine Tools,,,1600,111
+Scientific equipment,Machine tools,Compression & traction machines,Passive/Non-Powered,,,0,0
+Scientific equipment,Machine tools,Compression & traction machines,Precision Welding/Bonding,,,580,68
+Scientific equipment,Machine tools,Compression & traction machines,Vacuum/Extraction Unit,,,920,624
+Scientific equipment,Mechanics,Pumps,Vaccum mechanical pumps (> 500W),820,0,,
+Scientific equipment,Mechanics,Pumps,Vaccum diaphragm pumps (< 500W),90,0,,
+Scientific equipment,Mechanics,Pumps,Laboratory suction pumps (< 100W),70,0,,
+Scientific equipment,Mechanics,Pumps,Peristaltic pumps,30,0,,
+Scientific equipment,Mechanics,Robots,,110,50,,
+Scientific equipment,Mechanics,Actuators,Electric Robots & Multi-Axis Actuators,,,660,64
+Scientific equipment,Mechanics,Actuators,Hydraulic Actuators & Cylinders,,,11500,1969
+Scientific equipment,Mechanics,Actuators,Laboratory Automation Devices,,,300,64
+Scientific equipment,Mechanics,Actuators,Laboratory Presses & Molding,,,2400,700
+Scientific equipment,Mechanics,Actuators,Mobile & Field Robots (Battery),,,200,10
+Scientific equipment,Mechanics,Actuators,Motion Platforms & Wearables,,,1200,92
+Scientific equipment,Mechanics,Actuators,Precision Micro/Nano Positioners,,,60,9
+Scientific equipment,Mechanics,Other mechanical equipment,,,,,
+Scientific equipment,Mechanics,Other scientific equipment,,,,,
+Scientific equipment,Measures /Detections,Gas analyser,,5,5,,
+Scientific equipment,Measures /Detections,Electrochemical analyser,,,,200,43
+Scientific equipment,Measures /Detections,Scales,,5,5,,
+Scientific equipment,Measures /Detections,Lab cameras,,5,5,,
+Scientific equipment,Measures /Detections,Detectors,,,,170,119
+Scientific equipment,Measures /Detections,Probes,,,,65,43
+Scientific equipment,Measures /Detections,Spectrometers,,2500,2500,,
+Scientific equipment,Measures /Detections,Other measuring equipment,,,,,
+Scientific equipment,Microscopy,Laser-scanning microscope,,800,400,,
+Scientific equipment,Microscopy,AFM microscopes,,150,5,,
+Scientific equipment,Microscopy,Electronic microscopes,Microscope Support Equipment,,,256,74
+Scientific equipment,Microscopy,Electronic microscopes,Optical Microscope (Widefield),,,118,33
+Scientific equipment,Microscopy,Electronic microscopes,Scanning Electron Microscope,,,2250,1523
+Scientific equipment,Microscopy,Electronic microscopes,Scanning Probe Microscope,,,100,20
+Scientific equipment,Microscopy,Electronic microscopes,Transmission Electron Microscope,,,8000,5643
+Scientific equipment,Microscopy,Optical microscopes,Average confocal microscopes,480,380,,
+Scientific equipment,Microscopy,Optical microscopes,Microscopes with incubation chamber,800,10,,
+Scientific equipment,Microscopy,Optical microscopes,FL microscopes,150,5,,
+Scientific equipment,Microscopy,Optical microscopes,"Simple microscopes, reversed microscopes, and binocular lenses,",30,5,,
+Scientific equipment,Microscopy,Stereo microscopes,,,,30,2
+Scientific equipment,Microscopy,Pneumatic tables,,,,2,2
+Scientific equipment,Microscopy,Other microscopy equipment,,,,,
+Scientific equipment,Optics,Diffractometers,,30,10,,
+Scientific equipment,Optics,Lasers,,150,150,,
+Scientific equipment,Optics,Monochromateurs,,,,56,26
+Scientific equipment,Optics,Light sources,Light sources for microscope,120,120,,
+Scientific equipment,Optics,Light sources,Insect UV lights,70,70,,
+Scientific equipment,Optics,Other optical equipment,,,,,
+Scientific equipment,Acoustic,Acoustics,,30,10,,
+Scientific equipment,Electrophysiological& medical,EEG /ECG / EMG,,30,30,,
+Scientific equipment,Electrophysiological& medical,Micromanipulator,,120,10,,
+Scientific equipment,Electrophysiological& medical,Other electrophysiolog. & medical equip.,,,,,
+Scientific equipment,Miscellaneouslab equipment,Agitator / Incubator,Simple agitators/incubators,80,10,,
+Scientific equipment,Miscellaneouslab equipment,Agitator / Incubator,Refrigerated incubators,100,100,,
+Scientific equipment,Miscellaneouslab equipment,Agitator / Incubator,30 to 37C incubators,20,20,,
+Scientific equipment,Miscellaneouslab equipment,Agitator / Incubator,"Bench agitators (vortex, rockers, platforms, magnetic agitators,
+          thermomixers)",30,5,,
+Scientific equipment,Miscellaneouslab equipment,Agitator / Incubator,CO2 incubators,60,60,,
+Scientific equipment,Miscellaneouslab equipment,Agitator / Incubator,Climate chambers,100,100,,
+Scientific equipment,Miscellaneouslab equipment,Agitator / Incubator,"Water-baths, bead-baths, dry-baths",50,50,,
+Scientific equipment,Miscellaneouslab equipment,Agitator / Incubator,Agitation heating plates,80,80,,
+Scientific equipment,Miscellaneouslab equipment,Aligner,,,,?,?
+Scientific equipment,Miscellaneouslab equipment,Centrifugation,Ultra centrifuges,1300,130,,
+Scientific equipment,Miscellaneouslab equipment,Centrifugation,High-speed floor-standing centrifuges,2200,110,,
+Scientific equipment,Miscellaneouslab equipment,Centrifugation,Large refrigerated bench top centrifuges,610,20,,
+Scientific equipment,Miscellaneouslab equipment,Centrifugation,Large bench top centrifuges,180,30,,
+Scientific equipment,Miscellaneouslab equipment,Centrifugation,1.5mL refrigerated bench top centrifuges,290,10,,
+Scientific equipment,Miscellaneouslab equipment,Centrifugation,1.5mL bench top centrifuges,140,5,,
+Scientific equipment,Miscellaneouslab equipment,Centrifugation,Mini centrifuges,60,5,,
+Scientific equipment,Miscellaneouslab equipment,Vacuum chamber,,100,100,,
+Scientific equipment,Miscellaneouslab equipment,"Chromatographs (HPLC, etc.)",FPLC,50,50,,
+Scientific equipment,Miscellaneouslab equipment,"Chromatographs (HPLC, etc.)",HPLC,150,150,,
+Scientific equipment,Miscellaneouslab equipment,Cell counter (FACS),,10,10,,
+Scientific equipment,Miscellaneouslab equipment,Cryogenics,,10,10,,
+Scientific equipment,Miscellaneouslab equipment,Cryostats,,720,500,,
+Scientific equipment,Miscellaneouslab equipment,Cytometer,,720,720,,
+Scientific equipment,Miscellaneouslab equipment,Evaporator,Vacuum evaporators,200,0,,
+Scientific equipment,Miscellaneouslab equipment,Evaporator,Rotary vacuum evaporators,50,0,,
+Scientific equipment,Miscellaneouslab equipment,Drying ovens,,220,5,,
+Scientific equipment,Miscellaneouslab equipment,Laminar flow hood,Old 180cm laminar flow hoods (>15yo),900,20,,
+Scientific equipment,Miscellaneouslab equipment,Laminar flow hood,Old 120cm laminar flow hoods (>15yo),490,10,,
+Scientific equipment,Miscellaneouslab equipment,Laminar flow hood,Recent 180cm laminar flow hoods (<15yo),290,10,,
+Scientific equipment,Miscellaneouslab equipment,Laminar flow hood,Recent 150cm laminar flow hoods (<15yo),180,10,,
+Scientific equipment,Miscellaneouslab equipment,Lab ovens,,70,70,,
+Scientific equipment,Miscellaneouslab equipment,Lyophilisator,Speed vacuum concentrators,710,20,,
+Scientific equipment,Miscellaneouslab equipment,Lyophilisator,Lyophilisator (> 1kW),1840,1840,,
+Scientific equipment,Miscellaneouslab equipment,Microtomes,,30,30,,
+Scientific equipment,Miscellaneouslab equipment,PCR / QPCR,PCR,120,20,,
+Scientific equipment,Miscellaneouslab equipment,PCR / QPCR,QPCR,370,110,,
+Scientific equipment,Miscellaneouslab equipment,Chemical reactors,,,,1480,117
+Scientific equipment,Miscellaneouslab equipment,RMN,,,,1480,0
+Scientific equipment,Miscellaneouslab equipment,Sequencers,,20,20,,
+Scientific equipment,Miscellaneouslab equipment,Deposition and engraving systems,,80,10,,
+Scientific equipment,Miscellaneouslab equipment,Lab Freezer / Frigde,Old -80C freezers (>12yo),1130,1130,,
+Scientific equipment,Miscellaneouslab equipment,Lab Freezer / Frigde,Recent -80C freezers (<12yo),480,480,,
+Scientific equipment,Miscellaneouslab equipment,Lab Freezer / Frigde,Small +4C or -20C freezers (< 150L),30,30,,
+Scientific equipment,Miscellaneouslab equipment,Lab Freezer / Frigde,Big +4C or -20C freezers (> 150L),80,80,,
+Scientific equipment,Miscellaneouslab equipment,Lab Freezer / Frigde,"Refrigerated display cabinets (fixed or mobile, 1-2m3)",230,230,,
+Scientific equipment,Miscellaneouslab equipment,Lab Freezer / Frigde,Cold rooms (20m2),620,620,,
+Scientific equipment,Miscellaneouslab equipment,Lab Freezer / Frigde,Ice machines,150,150,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.","Sonicators, homogenizers",100,40,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.","Transfection systems, electroporators, gene pulsers",50,40,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",Water purifiers,70,30,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.","Spectrophotometers, fluorimeters, luminometers",20,10,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",Plate readers,60,20,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",Plate washers,30,10,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.","Imaging systems, geldocs",120,5,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",Microwaves,1490,5,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.","Refrigerated baths, chillers",330,330,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",Ultrasound baths,160,0,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",Bioruptors,50,10,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",Emulsiflexes,150,10,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",Crushers,80,10,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",Euthanasia boxes,10,0,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",Stimulators,20,10,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",Pipette pullers,50,10,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",UV irradiators,50,0,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",Pipetting robots,150,100,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",Syringe pumps and injectors,30,0,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",Gel dryers,260,5,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",O2 concentrator generators,290,290,,
+Scientific equipment,Miscellaneouslab equipment,"Other biological, chem. and phys. equip.",Other devices,0,0,,
+IT /Telecom,,Servers,,160,30,,
+IT /Telecom,,Desktop,,90,10,,
+IT /Telecom,,Laptop,,30,10,,
+IT /Telecom,,Monitors,,40,10,,
+IT /Telecom,,Printers,,800,15,,
+IT /Telecom,,Scanners,,20,10,,
+IT /Telecom,,Software,,,,0,0
+IT /Telecom,,Network,,,,70,56
+IT /Telecom,,Components,,,,100,3
+IT /Telecom,,Telecom,,10,5,,
+IT /Telecom,,Other IT / telecom equipment,,,,,
+Audiovisual,,Photo camera,,,,30,10
+Audiovisual,,Beamer,,300,5,,
+Audiovisual,,Cameras,,5,5,,
+Audiovisual,,HF Microphones,,10,10,,
+Audiovisual,,Screens,,,,0,0
+Audiovisual,,Overhead projectors,,,,0,0
+Audiovisual,,Videoconferencing,,30,5,,
+Audiovisual,,Audio,,,,30,0
+Audiovisual,,Video,,,,30,0
+Audiovisual,,Other audiovisual equipment,,,,,
+Infrastructure,,Autoclaves,Bench top autoclaves,570,20,,
+Infrastructure,,Autoclaves,Autoclaves (150 L),2000,350,,
+Infrastructure,,Kitchen freezer,,,,2000,1
+Infrastructure,,Kitchen oven,,,,2000,0
+Infrastructure,,Hoods,,,,300,135
+Infrastructure,,CPG mobile equipment,CPG ventilation motors,110,110,,
+Infrastructure,,CPG mobile equipment,Other CPG mobile equipment,0,0,,
+Infrastructure,,CPG fixed equipment,,,,0,0
+Infrastructure,,Other infrastructure equipment,Distillation equipment,5600,0,,
+Infrastructure,,Other infrastructure equipment,Washers,,,0,0
+Stewardship,,Vehicles,,,,1300,0
+Stewardship,,Camipro,,,,0,0
+Stewardship,,Cleaning equipment,,,,0,0
+Stewardship,,Other stewardship equipment,,,,,
+Furniture,,Chairs,,,,0,0
+Furniture,,Tables,,,,0,0
+Furniture,,Special furniture,,,,1000,0
+Furniture,,Kitchen,,,,0,0
+Furniture,,Other furniture equipment,,,,,
+Reprography,,Reprography equipment,,,,2000,95
+Reprography,,Photocopy machines,,,,2000,95
+Reprography,,Other reprography equipment,,,,,

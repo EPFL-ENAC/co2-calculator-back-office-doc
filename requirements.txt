@@ -1,0 +1,12 @@
+# Docs build dependencies (pinned to safe major versions)
+
+
+# MkDocs core and theme
+mkdocs>=1.5,<2
+mkdocs-material>=9.4,<10
+
+# Markdown extensions used in mkdocs.yml
+pymdown-extensions>=10,<11
+
+# Plugins configured in mkdocs.yml
+mkdocs-table-reader-plugin>=2,<3
