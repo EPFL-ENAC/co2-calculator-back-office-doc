@@ -5,7 +5,7 @@
 [Atmosfair](https://www.atmosfair.de/en/), for collecting and sharing data on air travel
 
 [Quantis](https://quantis.com/), for determining EPFL-specific emission factors to evaluate the impact of food consumed on campus
-
+ 
 [Labos 1point5](https://labos1point5.org/), for sharing their economic emission factors to evaluate the impact of purchases
 
 **EPFL - VPO Facilities operation team**, for providing data on the energy consumption of campus buildings
