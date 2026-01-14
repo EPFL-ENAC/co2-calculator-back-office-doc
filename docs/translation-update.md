@@ -1,6 +1,6 @@
-## Back-Office - Documentation editing. 
-### How to update texts process
-
+## Back-Office - Translation editing. 
+### How to update texts and translation process
+To update translation, first goes to the link in which the text is located through backoffice Documentation-editing translation section.
 #### 1. Edit text button 
 
 <img width="890" height="388" alt="Image" src="https://github.com/user-attachments/assets/cee74a22-27e2-44e7-9af0-17dfabcfe94e" />
@@ -33,3 +33,10 @@ Courte description ds changements apportés (où, quoi), ajouter une description
 Créer une nouvelle branch avec la syntax `text/<edited_files>`
 
 <img width="509" height="674" alt="Image" src="https://github.com/user-attachments/assets/225158a4-5ef3-4e99-8224-f3e0ae5573fc" />
+
+### 6. When to do the PR
+Vous arriverez ensuite sur `Open a Pull Request`
+- Mettez un titre, vous pouvez ajouter une description ou laisser vide, ou laisser le template.
+- Mettez @charlottegiseleweil  comme reviewer en haut à droite
+- Créer la Pull Request en bas à droite
+<img width="1295" height="827" alt="Image" src="https://github.com/user-attachments/assets/59d8edb3-ddbd-4682-84ed-cb793d1b9ef0" />
