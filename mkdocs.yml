@@ -55,7 +55,7 @@ extra_javascript:
 
 nav:
   - Home: index.md
-  - Changing Translation: translation-update.md
-  - Changing Documentation Texts: doc-update.md
+  - Update Translation: translation-update.md
+  - Update Documentation: doc-update.md
   - Acknowledgements: acknowledgements.md
   - Contact: contact.md
