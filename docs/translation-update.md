@@ -36,6 +36,6 @@ Créer une nouvelle branch avec la syntax `text/<edited_files>`
 ## 6. When to do the PR
 Vous arriverez ensuite sur `Open a Pull Request`
 - Mettez un titre, vous pouvez ajouter une description ou laisser vide, ou laisser le template.
-- Mettez @charlottegiseleweil  comme reviewer en haut à droite
+- Attribuez une personne comme reviewer en haut à droite
 - Créer la Pull Request en bas à droite
 <img width="1295" height="827" alt="Image" src="https://github.com/user-attachments/assets/59d8edb3-ddbd-4682-84ed-cb793d1b9ef0" />

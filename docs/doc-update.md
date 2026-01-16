@@ -71,13 +71,13 @@ Refers to [Markdown Table Syntax](https://www.markdownguide.org/extended-syntax/
 
 
 ## 5. Make a commit message
-Courte description ds changements apportés (où, quoi), ajouter une description si besoin. Et créez une nouvelle branche avec la syntax `text/<edited_files>`
+Courte description des changements apportés (où, quoi), ajouter une description si besoin. Et créez une nouvelle branche avec la syntax `text/<edited_files>`
 
 ![alt text](assets/images/image008.png)
 
 ## 6. When to do the PR
 Vous arriverez ensuite sur `Open a Pull Request`
 - Mettez un titre, vous pouvez ajouter une description ou laisser vide, ou laisser le template.
-- Mettez @charlottegiseleweil  comme reviewer en haut à droite
+- Attribuez une personne comme reviewer en haut à droite
 - Créer la Pull Request en bas à droite
 ![alt text](assets/images/image009.png)
