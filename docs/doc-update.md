@@ -51,6 +51,9 @@ $$
 E=mc^2 
 $$
 
+> [!Caution]
+> If equation is not properly display in preview mode: Add a an empty after second dollars '$$' 
+
 ### 3.4 Adding Tables
 To add a table, use the following markdown syntax:
 ```
