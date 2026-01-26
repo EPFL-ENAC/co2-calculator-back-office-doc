@@ -27,3 +27,5 @@
 **EPFL – SV-IT team**, for the support provided throughout the development of this online footprint calculation tool
 
 **EPFL – SV Green team**, for the enthusiasm, guidance, and feedback throughout the development of this footprint calculation tool
+
+**EPFL – ENAC-IT**, for the development of this footprint calculation tool with enthusiasm.
