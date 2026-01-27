@@ -79,7 +79,9 @@ Refers to [Markdown Table Syntax](https://www.markdownguide.org/extended-syntax/
 
 
 ## 5. Commit
-Write a commit message, and you can directly "Push to main" by pressing "Cmmit". 
-![alt text](assets/images/image008.png)
+Write a commit message, and you can directly "Push to main" by pressing "Commit". 
+
+<img src="../assets/images/image008.png" alt="alt text" width="300"/>
+
 
 Your changes will be visible after a few minutes. 

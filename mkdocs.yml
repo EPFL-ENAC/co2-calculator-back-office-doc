@@ -36,6 +36,7 @@ plugins:
 
 markdown_extensions:
   - admonition
+  - pymdownx.blocks.caption
   - toc:
       permalink: true
   - pymdownx.details

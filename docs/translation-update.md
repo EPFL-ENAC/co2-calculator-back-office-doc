@@ -18,7 +18,9 @@ Be careful with:
 - Si besoin d'utiliser `'` ( let's) le texte doit se trouver dans des `"`  Exemple : `" Let's go "` et non `'Let's go'`
 <img width="521" height="250" alt="Image" src="https://github.com/user-attachments/assets/25f61af2-b80a-40c3-9356-7e37d7b0ea52" />
 
-## 3. Commit changes
+- Dont use `@` in translation text. Use instaead for example `[at]`.
+
+## 3. Commit changes-
 
 <img width="882" height="417" alt="Image" src="https://github.com/user-attachments/assets/48a95980-5f63-4f5b-81bf-6e2c46dfe541" />
 
