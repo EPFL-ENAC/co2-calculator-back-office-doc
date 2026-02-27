@@ -14,22 +14,22 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------|
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits numbers only) |
     | name | string | ✅ | non-empty string | e.g. First and second name |
-    | function | string | ❌ | - | e.g. professor , if `None` completed in the table |
-    | plot_function | string | ❌ | within function list define ` professor, scientific_collaborator, postdoctoral_assistant, doctoral_assistant, trainee, technichal_administrative_staff, student, other` can be `None` | - |
+    | position_title | string | ❌ | - | e.g. professor , if `None` completed in the table |
+    | position_category | string | ❌ | within a list define ` professor, scientific_collaborator, postdoctoral_assistant, doctoral_assistant, trainee, technichal_administrative_staff, student, other` can be `None` | - |
     | user_institutional_id | string | ❌ | numbers only | for EPFL: sciper |
     | fte | float | ✅ | 0 ≤ float ≤ 1 | Full-time equivalent e.g. 1.0, 0.8 |
     | note | string | ❌ | - | contains the note if needed |
 
     !!! note
-        Function and fte can be completed in the table directly if not given and have to be completed to validated the module. user_institutional_id cannot be given in the table.
+        position_category and fte can be completed in the table directly if not given and have to be completed to validated the module. user_institutional_id cannot be given in the table.
 
 ???+ info "headcount_template.csv and headcount_test.csv"
 
     | field | type | mandatory | values constraints | description |
     |-------|------|-----------|-------------------|-------------|
     | name | string | ✅ | non-empty string | e.g. First and second name |
-    | function | string | ❌ | - | e.g. professor , if `None` completed in the table |
-    | plot_function | string | ❌ | within function list define ` professor, scientific_collaborator, postdoctoral_assistant, doctoral_assistant, trainee, technichal_administrative_staff, student, other` can be `None` | - |
+    | position_title | string | ❌ | - | e.g. professor , if `None` completed in the table |
+    | position_category | string | ❌ | within a list define ` professor, scientific_collaborator, postdoctoral_assistant, doctoral_assistant, trainee, technichal_administrative_staff, student, other` can be `None` | - |
     | user_institutional_id | string | ❌ | numbers only | for EPFL: sciper |
     | fte | float | ✅ | 0 ≤ float ≤ 1 | Full-time equivalent e.g. 1.0, 0.8 |
     | note | string | ❌ | - | contains the note if needed |
