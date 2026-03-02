@@ -71,7 +71,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | equipment_class | string  | ✅ | within `equipments_factors.csv` | e.g. "Monitor" is used to get power in `equipments_factors.csv`. If `equipment_class` is not empty but the value is not listed to `equipments_factors.csv`, the row is ignored. A warning message is displayed in loading. |
     | sub_class | string  | ❌ | within `equipments_factors.csv`, can be `None` | e.g. "Monitor" , the sub_class is filled by the user. Must be in the tuples equipment_class/sub_class within `equipments_factors.csv` else row ignored - (Warning message in loading if data uploaded with the wrong subclass) |
     | active_usage_hours_per_week | int | ❌ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
-    | passive_usage_hours_per_week | int | ❌ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
+    | standby_usage_hours_per_week | int | ❌ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given, no calculation is performed on this line |
 
@@ -84,7 +84,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | equipment_class | string  | ✅ | within `equipments_factors.csv` | e.g. "Monitor" is used to get power in `equipments_factors.csv`. If `equipment_class` is not empty but the value is not listed to `equipments_factors.csv`, the row is ignored. A warning message is displayed in loading. |
     | sub_class | string  | ❌ | within `equipments_factors.csv`, can be `None` |  e.g. "Monitor" , the sub_class is filled by the user. Must be in the tuples equipment_class/sub_class within `equipments_factors.csv` else row ignored - (Warning message in loading if data uploaded with the wrong subclass)|
     | active_usage_hours_per_week | int | ❌ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
-    | passive_usage_hours_per_week | int | ❌ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
+    | standby_usage_hours_per_week | int | ❌ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
     | note | string | ❌ | - | contains the note if needed |
 
 ???+ info "equipments_factors.csv"
@@ -95,7 +95,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | equipment_class | string  | ✅ | not empty string | e.g. "Evaporator" |
     | sub_class | string | ❌ | can be `None` | e.g. "ultra centrifuges" |
     | active_usage_hours_per_week | int | ✅ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
-    | passive_usage_hours_per_week | int | ✅ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
+    | standby_usage_hours_per_week | int | ✅ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
     | active_power_w | float | ✅ | ≥ 0 | e.g. 23 |
     | standby_power_w | float | ✅ | ≥ 0 | e.g. 23 |
     | ef_kg_co2eq_per_kwh | float | ✅ | ≥ 0 | e.g. swiss mix 0.125 |
