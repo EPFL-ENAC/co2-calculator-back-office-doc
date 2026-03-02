@@ -145,6 +145,43 @@ This guide provides comprehensive data validation schemas for all modules in the
 
 ## Travel
 
+???+ info "travel_planes_data.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | unit_insitutional_id | string | ✅ | numbers only | for EPFL: cf_id (numbers only) |
+    | from | string | ✅ | IATA code | e.g. "GVA" |
+    | to | string | ✅ | IATA code | e.g. "JFK" |
+    | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER |
+    | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row |
+    | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
+    | cabin_class | string | ✅ | within `first,business,eco` | e.g. business. For EPFL when taken from API, premium economy needs to be classifed as eco |
+    | note | string | ❌ | - | contains the note if needed |
+    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
+
+???+ info "travel_planes_test.csv and travel_planes_template.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | from | string | ✅ | IATA code | e.g. "GVA" |
+    | to | string | ✅ | IATA code | e.g. "JFK" |
+    | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER |
+    | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row |
+    | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
+    | cabin_class | string | ✅ | within `first,business,eco` | e.g. business |
+    | note | string | ❌ | - | contains the note if needed |
+
+???+ info "travel_planes_factors.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | category | string | ✅ | within `very_short_haul,short_haul,medium_haul,long_haul` | e.g. "very_short_haul" |
+    | ef_kg_co2eq_per_km | float | ✅ | 0 ≤ float | e.g. "0.345" |
+    | rfi_adjustement | float | ✅ | 0 ≤ float | The RFI (Radiative Forcing Index) for the methodology should be specified here, e.g. 2, 2.7, 3, etc. This is used to account for the total warming impact of flying. |
+    | class_adjustement | float | ✅ | 0 ≤ float | adjustement factor to take into consideration the class of the flight.  |
+    | min_distance | float | ✅ | in km, unique value | e.g. "300" min distance of the category |
+    | max_distance | float | ✅ | in km, unique value | e.g. "1200" max distance of the category |
+
 ???+ info "travel_trains_data.csv"
 
     | field | type | mandatory | values constraints | example / notes |
@@ -152,10 +189,10 @@ This guide provides comprehensive data validation schemas for all modules in the
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits,numbers only) |
     | from | string | ✅ | train station name | e.g. "Geneve Cornavin" TBD  it accepts error in naming |
     | to | string | ✅ | train station name | e.g. "Zurich" TBD it accepts error in naming |
-    | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER, if not in Headcount ignore row |
+    | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER, if not in Headcount ignore row with a warning message 'SCIPER for this trip not in unit. Add the SCIPER in the Headcount module.' |
     | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row |
-    | number_of_trips | int | ✅ | 0 ≤ int | e.g. 2 |
-    | cabin_class | string | ✅ | within `class_1,class_2` | e.g. class_2 |
+    | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
+    | cabin_class | string | ✅ | within `first,second` | e.g. second |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
 
@@ -170,8 +207,8 @@ This guide provides comprehensive data validation schemas for all modules in the
     | to | string | ✅ | train station name | e.g. "Zurich"  TBD it accepts error in naming |
     | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER, if not in Headcount row ignore |
     | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row |
-    | number_of_trips | int | ✅ | 0 ≤ int | e.g. 2 |
-    | cabin_class | string | ✅ | within `class_1,class_2` | e.g. class_2 |
+    | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
+    | cabin_class | string | ✅ | within `first,second` | e.g. second |
     | note | string | ❌ | - | contains the note if needed |
 
 ???+ info "travel_trains_factors.csv"
@@ -181,41 +218,6 @@ This guide provides comprehensive data validation schemas for all modules in the
     | country_code | string | ✅ | in `ISO 3166-1 alpha-2` format or use `RoW` for rest of the world | e.g. "CH" |
     | ef_kg_co2eq_per_km | float | ✅ | 0 ≤ float | e.g. "0.125" |
 
-???+ info "travel_planes_data.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | unit_insitutional_id | string | ✅ | numbers only | for EPFL: cf_id (numbers only) |
-    | from | string | ✅ | IATA code | e.g. "GVA" |
-    | to | string | ✅ | IATA code | e.g. "JFK" |
-    | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER |
-    | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row |
-    | number_of_trips | int | ✅ | 0 ≤ int | e.g. 2 |
-    | cabin_class | string | ✅ | within `first,business,eco,eco_plus` | e.g. business |
-    | note | string | ❌ | - | contains the note if needed |
-    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
-
-???+ info "travel_planes_test.csv and travel_planes_template.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | from | string | ✅ | IATA code | e.g. "GVA" |
-    | to | string | ✅ | IATA code | e.g. "JFK" |
-    | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER |
-    | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row |
-    | number_of_trips | int | ✅ | 0 ≤ int | e.g. 2 |
-    | cabin_class | string | ✅ | within `first,business,eco,eco_plus` | e.g. business |
-    | note | string | ❌ | - | contains the note if needed |
-
-???+ info "travel_planes_factors.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | category | string | ✅ | within `very_short_haul,short_haul,medium_haul,long_haul` | e.g. "very_short_haul" |
-    | ef_kg_co2eq_per_km | float | ✅ | 0 ≤ float | e.g. "0.345" |
-    | rfi_adjustement | float | ✅ | 0 ≤ int | The RFI (Radiative Forcing Index) for the methodology should be specified here, e.g. 2, 2.7, 3, etc. This is used to account for the total warming impact of flying. |
-    | min_distance | float | ✅ | in km, unique value | e.g. "300" min distance of the category |
-    | max_distance | float | ✅ | in km, unique value | e.g. "1200" max distance of the category |
 
 ---
 
