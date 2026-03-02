@@ -372,8 +372,8 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits, numbers only) |
     | category | string | ✅ | within `processes_factors.csv` | e.g. Refrigerant |
-    | subcategory | string | ✅ | within `processes_factors.csv` | e.g. R145 |
-    | quantity | float | ✅ | in kg | e.g. 34 |
+    | subcategory | string | ✅ | within `processes_factors.csv`, can be `None`  | e.g. R145 |
+    | quantity | float | ✅ | in kg, float >=0 | e.g. 34 |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
 
@@ -382,8 +382,8 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | category | string | ✅ | within `processes_factors.csv` | e.g. Refrigerant |
-    | subcategory | string | ✅ | within `processes_factors.csv` | e.g. R145 |
-    | quantity | float | ✅ | in kg | e.g. 34 |
+    | subcategory | string | ✅ | within `processes_factors.csv`, can be `None` | e.g. R145 |
+    | quantity | float | ✅ | in kg, float >=0 | e.g. 34 |
     | note | string | ❌ | - | contains the note if needed |
 
 ???+ info "processemissions_factors.csv"
@@ -392,8 +392,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | category | string | ✅ | - | for EPFL: fluide friorigènes |
     | subcategory | string | ✅ | - | e.g. NF3 |
-    | unit | string | ✅ | in kg | eg kg |
-    | name | string | ✅ | - | displayed name |
+    | unit | string | ✅ | - | eg kg |
     | ef_kg_co2eq_per_unit | float | ✅ | 0 ≤ float | e.g. 23'500 (kg CO2 eq / kg for SF6) |
 
 ---
