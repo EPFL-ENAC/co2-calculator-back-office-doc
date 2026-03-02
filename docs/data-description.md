@@ -9,10 +9,10 @@ This guide provides comprehensive data validation schemas for all modules in the
 ## General Notes
 
 !!! info "Data and factor files"
-    - module_data.csv: data uploaded by the backmanagement office. Here it is important to have always the info of the unit_institutional_id. 
-    - factors.csv: factors that are necessary for the calculation. (emission factors or other factors)
-    - module_template.csv: celui qui a juste le nom des colonnes et éventuellement une ligne d'exemple, que les utilisateur.ices téléchargent en cliquant sur "Download CSV Template".
-    - module_test.csv: pour implémenter / tester la fonctionalité "Upload CSV". Dans ce CSV, il faut exactement les mêmes colonnes que le CSV "template", mais pas l'unité/cost center, puisque l'utilisateur.ice qui le rentre est déjà dans son unité.
+    - module_data.csv: data uploaded by the backmanagement office. Here it is important to always have the info of the unit_institutional_id. 
+    - factors.csv: factors that are necessary for the calculation. (emission factors and/or other factors)
+    - module_template.csv: file that has the names of the columns, and a line of example. Users can download it by clicking on "Download CSV Template".
+    - module_test.csv: file that is uploaded via the button "Upload CSV". In this CSV, we have the same columns as in the CSV "template", (and there is no unit_institutional_id since the user is already inside the unit).
 
  
 
