@@ -174,14 +174,14 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (numbers only) |
-    | from | string | ✅ | IATA code | e.g. "GVA". For EPFL API: IN_Segment origin airport code |
-    | to | string | ✅ | IATA code | e.g. "JFK". For EPFL API: IN_Segment destination airport code |
-    | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER, in API: SCIPER |
-    | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row. In API: IN_Departure date|
-    | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2, in API: Number of trips |
-    | cabin_class | string | ✅ | within `first,business,eco` | e.g. business. For EPFL when taken from API, premium economy needs to be classifed as eco. In API: IN_Segment class |
+    | from | string | ✅ | IATA code | e.g. "GVA". |
+    | to | string | ✅ | IATA code | e.g. "JFK".|
+    | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER |
+    | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row. |
+    | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
+    | cabin_class | string | ✅ | within `first,business,eco` | e.g. business. For EPFL when taken from API, premium economy needs to be classifed as eco. |
     | note | string | ❌ | - | contains the note if needed |
-    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line. In API: "OUT_CO2_CORRECTED" |
+    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line. |
 
 ???+ info "travel_planes_test.csv and travel_planes_template.csv"
 
