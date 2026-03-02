@@ -88,7 +88,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | provider | string | ✅ | within `external_ai_factors.csv` | e.g. name of the firm "Google" |
     | usage_type | string | ✅ | within `external_ai_factors.csv` | e.g. "text,video,image", tuple provider/usage_type within `external_ai_factors`. If not in provided tuple, the raw is ignored with a Warning message. |
     | requests_per_user_per_day | string | ❌ | within "1-5 times per day", "5-20 times per day", "20-100 times per day", ">100 times per day" | e.g. 1-5 times per day |
-    | user_count | int | ✅ | 1 ≤ int | e.g. 2 |
+    | user_count | float | ✅ | 1 ≤ float | e.g. 2. By default the numbers shown is the total headcount of the unit. |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed |
 
@@ -99,7 +99,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | provider | string | ✅ | have to be in `external_ai_factors.csv` | e.g. name of the firm "Google" |
     | usage_type | string | ✅ | have to be in `external_ai_factors.csv` | e.g. "text,video,image" |
     | requests_per_user_per_day | string | ❌ | within "1-5 times per day", "5-20 times per day", "20-100 times per day", ">100 times per day" | e.g. 1-5 times per day |
-    | user_count | int | ✅ | 1 ≤ int | e.g. 2 |
+    | user_count | float | ✅ | 1 ≤ float | e.g. 2. By default the numbers shown is the total headcount of the unit. |
     | note | string | ❌ | - | contains the note if needed |
 
 ???+ info "external_ai_factors.csv"
@@ -404,26 +404,26 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits, numbers only) |
-    | building_location | string | ✅ | can be `None` | e.g. "ECUBLENS" |
+    | building_location | string | ❌ | can be `None` | e.g. "ECUBLENS" |
     | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
-    | room_name | string | ❌ | digit or name, can be None | if None completed in the table by the user |
-    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" if `None` completed in the table by the user |
+    | room_name | string | ❌ | digit or name, can be `None` | if `None` ,can be filled in the table by the user but not mandatory |
+    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" if `None` must be filled in the table by the user |
     | room_surface_square_meter | float | ✅ | 0 ≤ float | e.g. 12 |
-    | heating_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2 |
+    | heating_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2. For EPFL these 4 columns give tha data for all buildings, which will be used also for the data input by the users as test .csv  |
     | cooling_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2 |
     | ventilation_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2 |
     | lighting_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2 |
     | note | string | ❌ | - | contains the note if needed |
-    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
+    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line. For EPFL, this must be filled for SCITAS, RCP, etc |
 
 ???+ info "building_rooms_test.csv and building_rooms_template.csv"
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
-    | building_location | string | ✅ | can be `None` | e.g. "ECUBLENS" |
+    | building_location | string | ❌ | can be `None` | e.g. "ECUBLENS" |
     | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
     | room_name | string | ❌ | digit or name, can be None | if None completed in the table by the user |
-    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" if `None` completed in the table |
+    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" if `None` completed in the table. If the correspondence building, room_name, room_type does not exist, use the kwh_per_square_meter for the building, room_type (the room_name does not influence the consumption). |
     | room_surface_square_meter | float | ✅ | 0 ≤ float | e.g. 12 |
     | note | string | ❌ | - | contains the note if needed |
 
@@ -434,7 +434,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | building_name | string | ✅ | - | for EPFL: BCH,BS... |
     | category | string | ✅ | `heating, cooling, ventilation, lighting` | e.g. heating, cooling, ventilation, lighting |
     | ef_kg_co2eq_per_kwh | float | ✅ | 0 ≤ float | e.g. 0.125 |
-    | energy_type | string | ✅ | `electric, thermal` | e.g. "electric" |
+    | energy_type | string | ✅ | `electric, thermal, etc` | e.g. "electric" |
     | conversion_factor | float | ✅ | can be `None` | e.g. 4 , if `None` consider as 1 |
 
 ???+ info "building_energycombustions_data.csv"
@@ -442,8 +442,8 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits, numbers only) |
-    | name | string | ✅ | within `building_combustions_factors.csv` | e.g. "gas naturel mix" |
-    | unit | string | ✅ | in SI format | eg kg , if couple "unit" "name" not found in `building_energycombustions_factors.csv` row ignore |
+    | name | string | ✅ | within `building_combustions_factors.csv` | e.g. "natural gas" |
+    | unit | string | ✅ | in SI format | eg kg , if couple "unit" "name" not found in `building_energycombustions_factors.csv` row ignore with warning message |
     | quantity | float | ✅ | 0 ≤ float | e.g. 34 |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
@@ -453,7 +453,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | name | string | ✅ | within `building_combustions_factors.csv` | e.g. "gas naturel mix" |
-    | unit | string | ✅ | in SI format | eg kg , if couple "unit" "name" not found in `building_energycombustions_factors.csv` row ignore |
+    | unit | string | ✅ | in SI format | eg kg , if couple "unit" "name" not found in `building_energycombustions_factors.csv` row ignore with warning message |
     | quantity | float | ✅ | 0 ≤ float | e.g. 34 |
     | note | string | ❌ | - | contains the note if needed |
 
@@ -461,9 +461,6 @@ This guide provides comprehensive data validation schemas for all modules in the
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
-    | category | string | ✅ | - | for EPFL: chauffage |
-    | sub_category | string | ✅ | - | e.g. gaz |
-    | sub_sub_category | string | ✅ | - | e.g. naturel |
     | unit | string | ✅ | in SI format | e.g. kWh |
     | name | string | ✅ | has to be unique | e.g. gas naturel mix |
     | ef_kg_co2eq_per_unit | float | ✅ | 0 ≤ float | e.g. 0.05 |
