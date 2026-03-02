@@ -6,6 +6,30 @@ This guide provides comprehensive data validation schemas for all modules in the
 
 ---
 
+## General Notes
+
+!!! info "Data and factor files"
+    - module_data.csv: data uploaded by the backmanagement office. Here it is important to have always the info of the unit_institutional_id. 
+    - factors.csv: factors that are necessary for the calculation. (emission factors or other factors)
+    - module_template.csv: celui qui a juste le nom des colonnes et éventuellement une ligne d'exemple, que les utilisateur.ices téléchargent en cliquant sur "Download CSV Template".
+    - module_test.csv: pour implémenter / tester la fonctionalité "Upload CSV". Dans ce CSV, il faut exactement les mêmes colonnes que le CSV "template", mais pas l'unité/cost center, puisque l'utilisateur.ice qui le rentre est déjà dans son unité.
+
+ 
+
+!!! info "Important Information"
+    - **unit_institutional_id**: For institutional data where relevant, this field contains the unit identifier (e.g., for EPFL: cf_id as 4-digit numbers).
+    - **kg_co2eq**: When this optional field is provided with a value, no calculation is performed for that line - the value is used directly.
+    - **note**: Available across all modules to add any relevant comments or explanations for specific entries.
+    - **Template and Test files**: Used for data entry by unit managers, while data files are typically pre-filled by the back-office.
+    - **Factors files**: Contain emission factors and conversion coefficients required for calculations.
+
+!!! warning "Data Validation"
+    - Rows that don't meet mandatory field requirements or value constraints will be ignored during upload.
+    - Warning messages will be displayed when data doesn't match factor files.
+    - Date formats must follow ISO standard (YYYY-MM-DD).
+
+---
+
 ## Headcount
 
 ???+ info "headcount_data.csv"
@@ -532,16 +556,4 @@ This guide provides comprehensive data validation schemas for all modules in the
 
 ---
 
-## General Notes
 
-!!! info "Important Information"
-    - **unit_institutional_id**: For institutional data where relevant, this field contains the unit identifier (e.g., for EPFL: cf_id as 4-digit numbers).
-    - **kg_co2eq**: When this optional field is provided with a value, no calculation is performed for that line - the value is used directly.
-    - **note**: Available across all modules to add any relevant comments or explanations for specific entries.
-    - **Template and Test files**: Used for data entry by unit managers, while data files are typically pre-filled by the back-office.
-    - **Factors files**: Contain emission factors and conversion coefficients required for calculations.
-
-!!! warning "Data Validation"
-    - Rows that don't meet mandatory field requirements or value constraints will be ignored during upload.
-    - Warning messages will be displayed when data doesn't match factor files.
-    - Date formats must follow ISO standard (YYYY-MM-DD).
