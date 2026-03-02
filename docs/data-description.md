@@ -476,7 +476,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | disposal_method | string | ✅ | within `waste_factors.csv` | e.g. incineration, biogas |
-    | waste_type | string | ✅ | within `waste_factors.csv` | e.g. glass, domestic... |
+    | waste_type | string | ✅ | within `waste_factors.csv` | e.g. glass, domestic... The tuple `disposal_method, waste_type` must be in `factors.csv`|
     | kg_per_fte | float | ✅ | 0 ≤ float | e.g. 344 |
 
     !!! note
