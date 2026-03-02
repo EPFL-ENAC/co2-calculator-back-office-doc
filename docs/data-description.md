@@ -86,9 +86,9 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits numbers only) |
     | provider | string | ✅ | within `external_ai_factors.csv` | e.g. name of the firm "Google" |
-    | usage_type | string | ✅ | within `external_ai_factors.csv` | e.g. "text,video,image", tuple provider/usage_type within `external_ai_factors` |
+    | usage_type | string | ✅ | within `external_ai_factors.csv` | e.g. "text,video,image", tuple provider/usage_type within `external_ai_factors`. If not in provided tuple, the raw is ignored with a Warning message. |
     | requests_per_user_per_day | string | ❌ | within "1-5 times per day", "5-20 times per day", "20-100 times per day", ">100 times per day" | e.g. 1-5 times per day |
-    | user_count | int | ✅ | 0 ≤ int | e.g. 2 |
+    | user_count | int | ✅ | 1 ≤ int | e.g. 2 |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed |
 
@@ -99,7 +99,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | provider | string | ✅ | have to be in `external_ai_factors.csv` | e.g. name of the firm "Google" |
     | usage_type | string | ✅ | have to be in `external_ai_factors.csv` | e.g. "text,video,image" |
     | requests_per_user_per_day | string | ❌ | within "1-5 times per day", "5-20 times per day", "20-100 times per day", ">100 times per day" | e.g. 1-5 times per day |
-    | user_count | int | ✅ | 0 ≤ int | e.g. 2 |
+    | user_count | int | ✅ | 1 ≤ int | e.g. 2 |
     | note | string | ❌ | - | contains the note if needed |
 
 ???+ info "external_ai_factors.csv"
@@ -108,14 +108,14 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | provider | string | ✅ | - | e.g. name of the firm "Google" |
     | usage_type | string | ✅ | - | e.g. type of use "text,video,image" |
-    | ef_kg_co2eq_per_request | float | ✅ | 0 ≤ int | e.g. "0.05" |
+    | ef_kg_co2eq_per_request | float | ✅ | 0 ≤ float | e.g. "0.05" |
 
 ???+ info "external_clouds_data.csv"
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits numbers only) |
-    | service_type | string | ✅ | within `external_clouds_factors.csv` | e.g. one of `Stockage,Calcul,Virtualisation` |
+    | service_type | string | ✅ | within `external_clouds_factors.csv` | e.g. one of `storage,compute,virtualisation` |
     | provider | string | ✅ | within `external_clouds_factors.csv` | e.g."AWS" |
     | spent_amount | float | ✅ | 0 ≤ float | e.g. 299 |
     | currency | string | ✅ | in `chf, eur` format, not `None` | e.g. eur |
@@ -126,7 +126,7 @@ This guide provides comprehensive data validation schemas for all modules in the
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
-    | service_type | string | ✅ | within `external_clouds_factors.csv` | e.g. one of `Stockage,Calcul,Virtualisation` |
+    | service_type | string | ✅ | within `external_clouds_factors.csv` | e.g. one of `storage,compute,virtualisation` |
     | provider | string | ✅ | within `external_clouds_factors.csv` | e.g."AWS" |
     | spent_amount | float | ✅ | 0 ≤ float | e.g. 299 |
     | currency | string | ✅ | in `chf, eur` format, not `None` | e.g. eur |
@@ -136,7 +136,7 @@ This guide provides comprehensive data validation schemas for all modules in the
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
-    | service_type | string | ✅ | not empty | e.g. `Stockage,Calcul,Virtualisation` |
+    | service_type | string | ✅ | not empty | e.g. `storage,compute,virtualisation` |
     | provider | string | ✅ | not empty | e.g. firm |
     | currency | string | ✅ | in `chf, eur` format, not `None` | e.g. eur |
     | ef_kg_co2eq_per_currency | float | ✅ | 0 ≤ float | e.g. 0.8 |
