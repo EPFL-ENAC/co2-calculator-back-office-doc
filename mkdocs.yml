@@ -18,14 +18,14 @@ theme:
   favicon: assets/logo/epfl-logo.svg
   palette:
     - scheme: default
-      primary: teal
-      accent: teal
+      primary: white
+      accent: white
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
     - scheme: slate
-      primary: teal
-      accent: teal
+      primary: white
+      accent: white
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode

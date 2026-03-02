@@ -206,6 +206,13 @@ This guide provides comprehensive data validation schemas for all modules in the
     | min_distance | float | ✅ | in km, unique value | e.g. "300" min distance of the category |
     | max_distance | float | ✅ | in km, unique value | e.g. "1200" max distance of the category |
 
+???+ info "travel_trains_locations_reference.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | country_code | string | ✅ | in `ISO 3166-1 alpha-2` format or use `RoW` for rest of the world | e.g. "CH" |
+    | ef_kg_co2eq_per_km | float | ✅ | 0 ≤ float | e.g. "0.125" |
+
 ???+ info "travel_trains_data.csv"
 
     | field | type | mandatory | values constraints | example / notes |
@@ -242,7 +249,12 @@ This guide provides comprehensive data validation schemas for all modules in the
     | country_code | string | ✅ | in `ISO 3166-1 alpha-2` format or use `RoW` for rest of the world | e.g. "CH" |
     | ef_kg_co2eq_per_km | float | ✅ | 0 ≤ float | e.g. "0.125" |
 
+???+ info "travel_trains_locations_reference.csv"
 
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | country_code | string | ✅ | in `ISO 3166-1 alpha-2` format or use `RoW` for rest of the world | e.g. "CH" |
+    | ef_kg_co2eq_per_km | float | ✅ | 0 ≤ float | e.g. "0.125" |
 ---
 
 ## Purchases
@@ -468,8 +480,8 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | building_location | string | ❌ | can be `None` | e.g. "ECUBLENS" |
     | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
-    | room_name | string | ❌ | digit or name, can be None | if None completed in the table by the user |
-    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" if `None` completed in the table. If the correspondence building, room_name, room_type does not exist, use the kwh_per_square_meter for the building, room_type (the room_name does not influence the consumption). |
+    | room_name | string | ✅ | digit or name, can be None | if None completed in the table by the user |
+    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" , can be change by the user, if changed the corresponding type in `building_rooms_factors.csv` is used (only type and building are taken to compute co2_eq). So it is the room type that is used by default. |
     | room_surface_square_meter | float | ✅ | 0 ≤ float | e.g. 12 |
 
 ???+ info "building_energycombustions_data.csv"
