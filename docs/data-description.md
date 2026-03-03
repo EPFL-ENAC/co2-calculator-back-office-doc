@@ -393,6 +393,12 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | researchfacility_id | string | ✅ | | e.g. for EPFL: cf of research facilities |
     | researchfacility_name | string | ✅ | | e.g. CIBM-GE |
+    | processemissions_share | float | ✅ | 0 ≤ float ≤ 1 | e.g. 0.3, this is the share of process emissions in the total co2eq of the research facility. This is used to split the total co2eq into the different sections in the calculation. |
+    | building_energycombustions_share | float | ✅ | 0 ≤ float ≤ 1 | e.g. 0.3, this is the share of building energy combustion emissions in the total co2eq of the research facility. This is used to split the total co2eq into the different sections in the calculation. |
+    | building_rooms_share | float | ✅ | 0 ≤ float ≤ 1 | e.g. 0.1, this is the share of building rooms emissions in the total co2eq of the research facility. This is used to split the total co2eq into the different sections in the calculation. |
+    | purchases_common_share | float | ✅ | 0 ≤ float ≤ 1 | e.g. 0.2, this is the share of purchases common emissions in the total co2eq of the research facility. This is used to split the total co2eq into the different sections in the calculation. |
+    | purchases_additional_share | float | ✅ | 0 ≤ float ≤ 1 | e.g. 0.05, this is the share of purchases additional emissions in the total co2eq of the research facility. This is used to split the total co2eq into the different sections in the calculation. |
+    | equipments_share | float | ✅ | 0 ≤ float ≤ 1 | e.g. 0.15, this is the share of equipments emissions in the total co2eq of the research facility. This is used to split the total co2eq into the different sections in the calculation. |
     | kg_co2eq_sum | float | ❌ | 0 ≤ float | e.g. 3555, not mandatory because the calculator is used to compute these results. however if this quantity is given here, it is taken instead of the calculator computation. It corresponds to the co2 for the research facility coming from purchases, equipment, buildings, process emissions and combustion emissions. |
     | researchfacility_type | string | ✅ | - | e.g. mice |
     | total_use | float | ✅ | 0 ≤ float, in the unit of "use_unit" | e.g. 34 |
