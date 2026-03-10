@@ -481,8 +481,10 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | building_name | string | ✅ | - | for EPFL: BCH,BS... |
     | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office"  |
-    | category | string | ✅ | `heating, cooling, ventilation, lighting` | e.g. heating, cooling, ventilation, lighting |
-    | category_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building, type of room and category. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
+    | heating_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
+    | cooling_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
+    | ventilation_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
+    | lighting_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
     | ef_kg_co2eq_per_kwh | float | ✅ | 0 ≤ float | e.g. 0.125 |
     | energy_type | string | ✅ | `electric, thermal, etc` | e.g. "electric" |
     | conversion_factor | float | ✅ | can be `None` | e.g. 4 , if `None` consider as 1. This is an adjustement factor needed because in some cases the kwh are elec, in other thermique, etc. And we need to bring it to right type to use the emission factors properly.  |
