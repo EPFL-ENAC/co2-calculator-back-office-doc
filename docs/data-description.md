@@ -91,7 +91,7 @@ This guide provides comprehensive data validation schemas for all modules in the
 
     | field | type | mandatory | values constraints | description |
     |-------|------|-----------|-------------------|-------------|
-    | data_entry_type | string | ✅ | non-empty string within : {`scientific,it,other`} | e.g. scientific. Case-sensitive |
+    | equipment_category | string | ✅ | non-empty string within : {`scientific,it,other`} | e.g. scientific. Case-sensitive |
     | equipment_class | string  | ✅ | not empty string | e.g. "Evaporator" |
     | sub_class | string | ❌ | can be `None` | e.g. "ultra centrifuges" |
     | active_usage_hours_per_week | int | ✅ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
