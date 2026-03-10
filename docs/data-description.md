@@ -174,8 +174,8 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (numbers only) |
-    | from | string | ✅ | IATA code | e.g. "GVA". |
-    | to | string | ✅ | IATA code | e.g. "JFK".|
+    | origin_iata | string | ✅ | IATA code | e.g. "GVA". |
+    | destination_iata | string | ✅ | IATA code | e.g. "JFK".|
     | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER |
     | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row. |
     | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
@@ -187,8 +187,8 @@ This guide provides comprehensive data validation schemas for all modules in the
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
-    | from | string | ✅ | IATA code | e.g. "GVA" |
-    | to | string | ✅ | IATA code | e.g. "JFK" |
+    | origin_iata | string | ✅ | IATA code | e.g. "GVA" |
+    | destination_iata | string | ✅ | IATA code | e.g. "JFK" |
     | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER |
     | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row |
     | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
@@ -218,8 +218,8 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits,numbers only) |
-    | from | string | ✅ | train station name | e.g. "Geneve Cornavin" TBD  it accepts error in naming |
-    | to | string | ✅ | train station name | e.g. "Zurich" TBD it accepts error in naming |
+    | origin_name | string | ✅ | train station name | e.g. "Geneve Cornavin" TBD  it accepts error in naming |
+    | destination_name | string | ✅ | train station name | e.g. "Zurich" TBD it accepts error in naming |
     | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER, if not in Headcount ignore row with a warning message 'SCIPER for this trip not in unit. Add the SCIPER in the Headcount module.' |
     | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row |
     | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
@@ -234,8 +234,8 @@ This guide provides comprehensive data validation schemas for all modules in the
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
-    | from | string | ✅ | train station name | e.g. "Geneve Cornavin" TBD it accepts error in naming |
-    | to | string | ✅ | train station name | e.g. "Zurich"  TBD it accepts error in naming |
+    | origin_name | string | ✅ | train station name | e.g. "Geneve Cornavin" TBD it accepts error in naming |
+    | destination_name | string | ✅ | train station name | e.g. "Zurich"  TBD it accepts error in naming |
     | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER, if not in Headcount row ignore |
     | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row |
     | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
