@@ -307,6 +307,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-dits, numbers only) |
     | name | string | ✅ | non-empty string | e.g. "Liquid nitrogen" |
     | unit | string | ✅ | - | e.g. liter |
+    | annual_consumption | float | ❌ | - | e.g. 45.05 |
     | coef_to_kg | float | ✅ | non negative | e.g. 3.05 |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
@@ -317,6 +318,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | name | string | ✅ | non-empty string | e.g. "Liquid nitrogen" |
     | unit | string | ✅ | - | e.g. liter |
+    | annual_consumption | float | ❌ | - | e.g. 45.05 |
     | coef_to_kg | float | ✅ | non negative | e.g. 3.05 |
     | note | string | ❌ | no constraints | contains the note if needed |
 
