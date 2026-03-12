@@ -463,7 +463,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | building_location | string | ❌ | can be `None` | e.g. "ECUBLENS" |
     | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
     | room_name | string | ❌ | digit or name, can be `None` | if `None` ,can be filled in the table by the user but not mandatory |
-    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" if `None` must be filled in the table by the user |
+    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" if `None` must be filled in the table by the user. If different from buildings_room_reference.csv it overwrites it. This is the information that is used for the calculation.  |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line. For EPFL, this must be filled for SCITAS, RCP, etc |
 
@@ -485,7 +485,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | building_location | string | ❌ | can be `None` | e.g. "ECUBLENS" |
     | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
     | room_name | string | ✅ | digit or name, can be None | if None completed in the table by the user |
-    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" , can be change by the user, if changed the corresponding type in `building_rooms_factors.csv` is used (only type and building are taken to compute co2_eq). So it is the room type that is used by default. |
+    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" , can be changed by the user, if changed the corresponding type in `building_rooms_factors.csv` is used (only type and building are taken to compute co2_eq). So it is the room type that is used by default when adding a new line. |
     | room_surface_square_meter | float | ✅ | 0 ≤ float | e.g. 12 |
 
     
