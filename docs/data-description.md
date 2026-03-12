@@ -206,12 +206,19 @@ This guide provides comprehensive data validation schemas for all modules in the
     | min_distance | float | ✅ | in km, unique value | e.g. "300" min distance of the category |
     | max_distance | float | ✅ | in km, unique value | e.g. "1200" max distance of the category |
 
-???+ info "travel_trains_locations_reference.csv"
+???+ info "travel_planes_locations_reference.csv"
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
-    | country_code | string | ✅ | in `ISO 3166-1 alpha-2` format or use `RoW` for rest of the world | e.g. "CH" |
-    | ef_kg_co2eq_per_km | float | ✅ | 0 ≤ float | e.g. "0.125" |
+    | name | string | ✅ | - | name of the location, typically the city or train station |
+    | airport_size | string | ❌ | within `medium_airport,large_airport` | e.g. "medium_airport" |
+    |latitude | float | ✅ | - | e.g. 46.2044 |
+    | longitude | float | ✅ | - | e.g. 6.1432 |
+    | continent | string | ❌ | within `EU,NA,SA,AF,AS,OC` | e.g. "EU" |
+    | country_code | string | ❌ | in `ISO 3166-1 alpha-2` format or use `RoW` for rest of the world | e.g. "CH" |
+    | iata_code | string | ✅ | IATA code of the airport | e.g. "GVA" |
+    | municipality | string | ❌ | - | e.g. "Geneva" |
+    | keywords | string | ❌ | - | keywords to link the location with the possible different names in the data |
 
 ???+ info "travel_trains_data.csv"
 
@@ -253,8 +260,13 @@ This guide provides comprehensive data validation schemas for all modules in the
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
+    | name | string | ✅ | - | name of the location, typically the city or train station |
+    |latitude | float | ✅ | - | e.g. 46.2044 |
+    | longitude | float | ✅ | - | e.g. 6.1432 |
+    | continent | string | ❌ | within `EU,NA,SA,AF,AS,OC` | e.g. "EU" |
     | country_code | string | ✅ | in `ISO 3166-1 alpha-2` format or use `RoW` for rest of the world | e.g. "CH" |
-    | ef_kg_co2eq_per_km | float | ✅ | 0 ≤ float | e.g. "0.125" |
+    | municipality | string | ❌ | - | e.g. "Geneva" |
+    | keywords | string | ❌ | - | keywords to link the location with the possible different names in the data |
 ---
 
 ## Purchases
