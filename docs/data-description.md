@@ -308,7 +308,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | currency | string | ✅ | in `chf,eur,usd, gbp, aud, etc` format | e.g. eur |
     | purchase_category | string | ✅ | within `it_equipment,other,scientific_equipment,services,vehicle,consumable_accessories,biological_chemical_gaseous_product` | e.g. `vehicle`. This columns is used to split the purchases into the subsections in the module. |
     | purchase_institutional_code | string | ✅ | - | e.g. UNSPSC code |
-    | purchase_institutional_description | string |  |❌ decription of the code | e.g. |
+    | purchase_institutional_description | string | ❌ | decription of the code | e.g. |
     | purchase_additional_code | string | ✅ | - | e.g. NACRES code |
     | ef_kg_co2eq_per_currency | float | ✅ | 0 ≤ float | e.g. 0.1 |
 
