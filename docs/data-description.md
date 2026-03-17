@@ -463,6 +463,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
     | room_name | string | ✅ | digit or name, can be `None` | If `None` , or if the correspondence (building_name, room_name) is not found in the reference, the row is ignored with a warning message (we do not have the info on squared meters without the name, and so we cannot do the calculation). |
     | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" if `None` must be filled in the table by the user. If different from buildings_room_reference.csv it overwrites it. This is the information that is used for the calculation.  |
+    | room_allocation_ratio | float | ✅ | 0 ≤ float ≤ 1.0 | Describe the allocation of a room for a sinle unit, in case of shared rooms etc... e.g. 0.8 |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line. For EPFL, this must be filled for SCITAS, RCP, etc |
 
