@@ -543,66 +543,24 @@ This guide provides comprehensive data validation schemas for all modules in the
 
 ## Additional Categories
 
-### Waste
+### Food, commuting and waste
 
-???+ info "waste_data.csv"
+These categories are related to the headcount. The total FTE is used to compute the values. For the logic of the calculation, all three categories - food, commuting, waste - are in the same files. A difference is made between student and members of staff, but waste has no difference in values.
+
+???+ info "headcount_members_factors.csv" & "headcount_students_factors.csv"
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
-    | disposal_method | string | ✅ | within `waste_factors.csv` | e.g. incineration, biogas |
-    | waste_type | string | ✅ | within `waste_factors.csv` | e.g. glass, domestic... The tuple `disposal_method, waste_type` must be in `factors.csv`|
+    | headcount_category | string | ✅ | within `food, commuting, waste` | e.g. food |
+    | headcount_class | string | ✅ | within the class of the categories, food: `vegetarian, non_vegetarian` , commuting: `walking, cycling, powered_two_wheeler, public_transport, car`, waste: `incineration, composting, biogas, recycling` | the class of the category|
+    | headcount_subclass | string | ❌ | none | the subclass of the category if needed |
+    | number_of_unit_per_fte | float | ✅ | 0 ≤ float | e.g. for food, this is the kg of food per FTE, for commuting this is the km per FTE, for waste this is the kg of waste per FTE |
+    | ef_kg_co2eq_per_unit | float | ✅ | 0 ≤ float | e.g. for food, this is the kg of co2eq per kg of food, for commuting this is the kg of co2eq per km, for waste this is the kg of co2eq per kg of waste |
+    | unit | string | ✅ | - | e.g. for food, this is kg, for commuting this is km, for waste this is kg |
     | kg_per_fte | float | ✅ | 0 ≤ float | e.g. 344 |
 
     !!! note
-        No test and template files for waste data
-
-???+ info "waste_factors.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | disposal_method | string | ✅ | - | e.g. incineration, biogas |
-    | waste_type | string | ✅ | - | e.g. glass, domestic... |
-    | ef_kg_co2eq_per_kg | float | ✅ | 0 ≤ float | e.g. 2333 |
-
-### Commuting
-
-???+ info "commuting_data.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | commuting_type | string | ✅ | within `commuting_factors.csv` | e.g. car, bike... |
-    | person_type | string | ✅ | student or staff | e.g. student |
-    | km_per_fte | float | ✅ | 0 ≤ float | e.g. 3222 |
-
-    !!! note
-        No test and template files for commuting data
-
-???+ info "commuting_factors.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | commuting_type | string | ✅ | - | e.g. bike, car, .. |
-    | ef_kg_co2eq_per_km | float | ✅ | 0 ≤ float | e.g. 23 |
-
-### Food
-
-???+ info "food_data.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | food_type | string | ✅ | within `food_factors.csv` | e.g. vegetarian, non-vegetarian |
-    | person_type | string | ✅ | student or staff | e.g. student |
-    | kg_per_fte | float | ✅ | 0 ≤ float | e.g. 37 |
-
-    !!! note
-        No test and template files for food data
-
-???+ info "food_factors.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | food_type | string | ✅ | - | e.g. vegetarian, non-vegetarian |
-    | ef_kg_co2eq_per_kg | float | ✅ | 0 ≤ float | e.g. 45 |
+        No test and template files 
 
 ---
 
