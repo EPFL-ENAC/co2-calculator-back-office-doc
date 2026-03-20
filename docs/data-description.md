@@ -562,6 +562,17 @@ These categories are related to the headcount. The total FTE is used to compute 
     !!! note
         No test and template files 
 
+### Building grey energy
+
+
+???+ info "building_greyenergy_factors.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | building_name | string | ✅ | within `building_rooms_reference.csv` | e.g. BCH |
+    | category | string | ✅ | within the class of the categories `new-tech, new-env,ren-tech,ren-env,demolition` | the category of the specified category of grey energy |
+    | ef_kgco2eq_per_m2 | float | ✅ | 0 ≤ float | the kg of co2eq per m2 attributes to a specified category of grey energy |
+
 ---
 
 
