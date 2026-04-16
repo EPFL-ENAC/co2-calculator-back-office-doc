@@ -1,6 +1,6 @@
 # CO2 Calculator — Back Office Docs
 
-Welcome! This site provides back-office user documentation for the EPFL ENAC CO₂ calculator.
+Welcome! This site provides back-office documentation for the EPFL ENAC CO₂ calculator.
 
 Use the sidebar to navigate.
 
