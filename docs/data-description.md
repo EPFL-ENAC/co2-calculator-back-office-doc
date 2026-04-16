@@ -176,7 +176,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (numbers only) |
     | origin_iata | string | ✅ | IATA code | e.g. "GVA". |
     | destination_iata | string | ✅ | IATA code | e.g. "JFK".|
-    | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER |
+    | user_institutional_id | string | ✅ | - | e.g. EPFL: SCIPER |
     | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row. |
     | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
     | cabin_class | string | ✅ | within `first,business,eco` | e.g. business. For EPFL when taken from API, premium economy needs to be classifed as eco. |
@@ -189,7 +189,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | origin_iata | string | ✅ | IATA code | e.g. "GVA" |
     | destination_iata | string | ✅ | IATA code | e.g. "JFK" |
-    | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER |
+    | user_institutional_id | string | ✅ | - | e.g. EPFL: SCIPER |
     | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row |
     | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
     | cabin_class | string | ✅ | within `first,business,eco` | e.g. business |
@@ -574,5 +574,3 @@ These categories are related to the headcount. The total FTE is used to compute 
     | ef_kgco2eq_per_m2 | float | ✅ | 0 ≤ float | the kg of co2eq per m2 attributes to a specified category of grey energy |
 
 ---
-
-
