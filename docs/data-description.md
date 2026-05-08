@@ -13,7 +13,6 @@ This guide provides comprehensive data validation schemas for all modules in the
     - factors.csv: factors that are necessary for the calculation. (emission factors and/or other factors)
     - module_template.csv: file that has the names of the columns, and a line of example. Users can download it by clicking on "Download CSV Template".
     - module_test.csv: file that is uploaded via the button "Upload CSV". In this CSV, we have the same columns as in the CSV "template", (and there is no unit_institutional_id since the user is already inside the unit).
-
  
 
 !!! info "Important Information"
@@ -24,6 +23,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     - **Factors files**: Contain emission factors and conversion coefficients required for calculations.
 
 !!! warning "Data Validation"
+    - Order of upload from the configuration back-office: the factors.csv file needs to be uploaded **before** the data.csv file, as certain requirements for data depend on what is given in the factors. 
     - Rows that don't meet mandatory field requirements or value constraints will be ignored during upload.
     - Warning messages will be displayed when data doesn't match factor files.
     - Date formats must follow ISO standard (YYYY-MM-DD).
