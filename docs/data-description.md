@@ -81,6 +81,7 @@ This guide provides comprehensive data validation schemas for all modules in the
 
     | field | type | mandatory | values constraints | description |
     |-------|------|-----------|-------------------|-------------|
+    | equipment_id | string | ✅ | letters and numbers | This info is used to deal with the updates between one year and the other, in particular for usage hours information. for EPFL: Inventory number |
     | name | string | ✅ | non-empty string | e.g. name of the equipment "GoPro" |
     | equipment_class | string  | ✅ | within `equipments_factors.csv` | e.g. "Monitor" is used to get power in `equipments_factors.csv`. If `equipment_class` is not empty but the value is not listed to `equipments_factors.csv`, the row is ignored. A warning message is displayed in loading. |
     | sub_class | string  | ❌ | within `equipments_factors.csv`, can be `None` |  e.g. "Monitor" , the sub_class is filled by the user. Must be in the tuples equipment_class/sub_class within `equipments_factors.csv` else row ignored - (Warning message in loading if data uploaded with the wrong subclass)|
