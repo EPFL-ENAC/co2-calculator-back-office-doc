@@ -210,6 +210,9 @@ This guide provides comprehensive data validation schemas for all modules in the
 
 ???+ info "travel_planes_locations_reference.csv"
 
+    !!! info "Data source"
+        Airport location reference data is sourced from [GeoNames](https://www.geonames.org/), a geographical database covering all countries.
+
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | name | string | ✅ | - | name of the location, typically the city or train station |
@@ -259,6 +262,9 @@ This guide provides comprehensive data validation schemas for all modules in the
     | ef_kg_co2eq_per_km | float | ✅ | 0 ≤ float | e.g. "0.125" |
 
 ???+ info "travel_trains_locations_reference.csv"
+
+    !!! info "Data source"
+        Train station location reference data is sourced from [GeoNames](https://www.geonames.org/), a geographical database covering all countries.
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
