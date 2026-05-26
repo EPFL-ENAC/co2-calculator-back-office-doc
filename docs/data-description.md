@@ -113,7 +113,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits numbers only) |
     | provider | string | ✅ | within `external_ai_factors.csv` | e.g. name of the firm "Google" |
     | usage_type | string | ✅ | within `external_ai_factors.csv` | e.g. "text,video,image", tuple provider/usage_type within `external_ai_factors`. If not in provided tuple, the raw is ignored with a Warning message. |
-    | requests_per_user_per_day | string | ❌ | within "1-5 times per day", "5-20 times per day", "20-100 times per day", ">100 times per day" | e.g. 1-5 times per day |
+    | requests_per_user_per_day | string |  ✅ | within "1-5 times per day", "5-20 times per day", "20-100 times per day", ">100 times per day" | e.g. 1-5 times per day |
     | user_count | float | ✅ | 1 ≤ float | e.g. 2. By default the numbers shown is the total headcount of the unit. |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed |
@@ -124,7 +124,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | provider | string | ✅ | have to be in `external_ai_factors.csv` | e.g. name of the firm "Google" |
     | usage_type | string | ✅ | have to be in `external_ai_factors.csv` | e.g. "text,video,image" |
-    | requests_per_user_per_day | string | ❌ | within "1-5 times per day", "5-20 times per day", "20-100 times per day", ">100 times per day" | e.g. 1-5 times per day |
+    | requests_per_user_per_day | string | ✅ | within "1-5 times per day", "5-20 times per day", "20-100 times per day", ">100 times per day" | e.g. 1-5 times per day |
     | user_count | float | ✅ | 1 ≤ float | e.g. 2. By default the numbers shown is the total headcount of the unit. |
     | note | string | ❌ | - | contains the note if needed |
 
@@ -144,7 +144,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | service_type | string | ✅ | within `external_clouds_factors.csv` | e.g. one of `storage,compute,virtualisation` |
     | provider | string | ✅ | within `external_clouds_factors.csv` | e.g."AWS" |
     | spent_amount | float | ✅ | 0 ≤ float | e.g. 299 |
-    | currency | string | ✅ | in `chf, eur` format, not `None` | e.g. eur |
+    | currency | string | ❌ | in `chf, eur` format, not `None`. If not given, eur is used by default. | e.g. eur |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed |
 
@@ -155,7 +155,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | service_type | string | ✅ | within `external_clouds_factors.csv` | e.g. one of `storage,compute,virtualisation` |
     | provider | string | ✅ | within `external_clouds_factors.csv` | e.g."AWS" |
     | spent_amount | float | ✅ | 0 ≤ float | e.g. 299 |
-    | currency | string | ✅ | in `chf, eur` format, not `None` | e.g. eur |
+    | currency | string | ❌ | in `chf, eur` format, not `None`. If not given, eur is used by default. | e.g. eur |
     | note | string | ❌ | - | contains the note if need |
 
 ???+ info "external_clouds_factors.csv"
