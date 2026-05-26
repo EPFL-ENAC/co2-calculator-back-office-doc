@@ -58,5 +58,5 @@ nav:
   - Home: index.md
   - Update Translation: translation-update.md
   - Update Documentation: doc-update.md
+  - Roles: roles.md
   - Data Management: data-description.md
-
