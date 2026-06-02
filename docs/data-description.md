@@ -38,9 +38,9 @@ This guide provides comprehensive data validation schemas for all modules in the
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits numbers only) |
     | name | string | ✅ | non-empty string | e.g. First and second name |
     | function_fr | string | ✅ | - | e.g. Collaborateur.trices scientifique. This is the category that is shown in the french version for the table and used for the graph |
-    | function_en | string | ✅ | e.g. Scientific collaborator. This is the category that is shown in the english version for the table and used for the graph | - |
+    | function_en | string | ✅ | - | e.g. Scientific collaborator. This is the category that is shown in the english version for the table and used for the graph |
     | user_institutional_id | string | ✅ | numbers only | for EPFL: sciper |
-    | fte | float | ✅ | 0 ≤ float ≤ 1 | Full-time equivalent e.g. 1.0, 0.8, 0.05, 0.75 |
+    | fte | float | ✅ | 0 < float ≤ 1 | Full-time equivalent e.g. 1.0, 0.8, 0.05, 0.75 |
     | note | string | ❌ | - | contains the note if needed |
 
     
