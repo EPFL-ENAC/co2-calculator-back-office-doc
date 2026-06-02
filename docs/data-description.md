@@ -246,7 +246,9 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits,numbers only) |
     | origin_name | string | ✅ | train station name | e.g. "Geneve Cornavin" TBD  it accepts error in naming |
-    | destination_name | string | ✅ | train station name | e.g. "Zurich" TBD it accepts error in naming |
+    | origin_country_code | string | ✅ | ISO2 for the country  | e.g. CH for switzerland|
+    | destination_name | string | ✅ | train station name | e.g. "Geneve Cornavin" TBD  it accepts error in naming |
+    | destination_country_code | string | ✅ |ISO2 for the country | e.g. CH for switzerland |
     | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER, if not in Headcount ignore row with a warning message 'SCIPER for this trip not in unit. Add the SCIPER in the Headcount module.' |
     | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row |
     | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
@@ -261,8 +263,10 @@ This guide provides comprehensive data validation schemas for all modules in the
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
-    | origin_name | string | ✅ | train station name | e.g. "Geneve Cornavin" TBD it accepts error in naming |
-    | destination_name | string | ✅ | train station name | e.g. "Zurich"  TBD it accepts error in naming |
+    | origin_name | string | ✅ | train station name | e.g. "Geneve Cornavin" TBD  it accepts error in naming |
+    | origin_country_code | string | ✅ | ISO2 for the country  | e.g. CH for switzerland|
+    | destination_name | string | ✅ | train station name | e.g. "Geneve Cornavin" TBD  it accepts error in naming |
+    | destination_country_code | string | ✅ |ISO2 for the country | e.g. CH for switzerland |
     | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER, if not in Headcount row ignore |
     | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row |
     | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
