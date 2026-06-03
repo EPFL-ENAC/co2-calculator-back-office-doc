@@ -54,19 +54,3 @@ Super Admin has full back-office access but no unit module data. Standard User
 and Principal User have no back-office access. A Backoffice Administrator's
 reporting is restricted to their own ACCRED sub-perimeter `(A)`; a Super Admin
 sees everything.
-
----
-
-## Back-office tab access
-
-Each back-office tab maps to one permission above.
-
-| Tab                   | Permission                       | Backoffice Administrator | Super Admin |
-| --------------------- | -------------------------------- | ------------------------ | ----------- |
-| Reporting             | `backoffice.reporting`           | ✅                       | ✅          |
-| User Management       | `backoffice.users`               | ✅                       | ✅          |
-| Documentation Editing | `backoffice.documentation`       | ✅                       | ✅          |
-| UI Texts Editing      | `backoffice.ui_texts`            | ✅                       | ✅          |
-| Configuration         | `backoffice.configuration`       | ❌                       | ✅          |
-| Pipeline Operations   | `backoffice.pipeline_operations` | ❌                       | ✅          |
-| Logs                  | `backoffice.logs`                | ❌                       | ✅          |
