@@ -20,62 +20,53 @@ A person can hold multiple roles simultaneously. For example, a lab manager migh
 
 ---
 
-## Module permissions (unit roles)
+## Permission matrix
 
-Module permissions are unit-scoped — a user only holds them for the unit(s) they are assigned to.
+Which actions each role grants on each permission. One permission per
+back-office page; module permissions are held only for the unit(s) a user is
+assigned to.
 
-### Standard User
+**Actions:** `V` = view · `E` = edit · `X` = export · `S` = sync · `–` = no
+grant.
+**Scope** (where data is restricted): `(U)` = unit · `(O)` = own (self) ·
+`(A)` = affiliation / ACCRED sub-perimeter. Back-office grants with no tag are
+global.
 
-| Module                          | view | edit (self) | edit (unit) | sync |
-| ------------------------------- | ---- | ----------- | ----------- | ---- |
-| `modules.headcount`             | ❌   | ❌          | ❌          | ❌   |
-| `modules.equipment`             | ❌   | ❌          | ❌          | ❌   |
-| `modules.professional_travel`   | ✅   | ✅          | ❌          | ❌   |
-| `modules.buildings`             | ❌   | ❌          | ❌          | ❌   |
-| `modules.purchase`              | ❌   | ❌          | ❌          | ❌   |
-| `modules.research_facilities`   | ❌   | ❌          | ❌          | ❌   |
-| `modules.external_cloud_and_ai` | ✅   | ✅          | ❌          | ❌   |
-| `modules.process_emissions`     | ❌   | ❌          | ❌          | ❌   |
+| Permission                       | Super Admin | Backoffice Administrator | Principal User | Standard User |
+| -------------------------------- | ----------- | ------------------------ | -------------- | ------------- |
+| `backoffice.reporting`           | V, X        | V, X (A)                 | –              | –             |
+| `backoffice.users`               | V, E, X     | V, E, X                  | –              | –             |
+| `backoffice.documentation`       | V, E        | V, E                     | –              | –             |
+| `backoffice.ui_texts`            | V, E        | V, E                     | –              | –             |
+| `backoffice.configuration`       | V, E        | –                        | –              | –             |
+| `backoffice.pipeline_operations` | V, E        | –                        | –              | –             |
+| `backoffice.logs`                | V           | –                        | –              | –             |
+| `modules.headcount`              | –           | –                        | V, E, S (U)    | –             |
+| `modules.equipment`              | –           | –                        | V, E, S (U)    | –             |
+| `modules.professional_travel`    | –           | –                        | V, E, S (U)    | V, E (O)      |
+| `modules.buildings`              | –           | –                        | V, E, S (U)    | –             |
+| `modules.purchase`               | –           | –                        | V, E, S (U)    | –             |
+| `modules.research_facilities`    | –           | –                        | V, E, S (U)    | –             |
+| `modules.external_cloud_and_ai`  | –           | –                        | V, E, S (U)    | V, E (O)      |
+| `modules.process_emissions`      | –           | –                        | V, E, S (U)    | –             |
 
-### Principal User
-
-| Module                          | view | edit (self) | edit (unit) | sync |
-| ------------------------------- | ---- | ----------- | ----------- | ---- |
-| `modules.headcount`             | ✅   | ✅          | ✅          | ✅   |
-| `modules.equipment`             | ✅   | ✅          | ✅          | ✅   |
-| `modules.professional_travel`   | ✅   | ✅          | ✅          | ✅   |
-| `modules.buildings`             | ✅   | ✅          | ✅          | ✅   |
-| `modules.purchase`              | ✅   | ✅          | ✅          | ✅   |
-| `modules.research_facilities`   | ✅   | ✅          | ✅          | ✅   |
-| `modules.external_cloud_and_ai` | ✅   | ✅          | ✅          | ✅   |
-| `modules.process_emissions`     | ✅   | ✅          | ✅          | ✅   |
+Super Admin has full back-office access but no unit module data. Standard User
+and Principal User have no back-office access. A Backoffice Administrator's
+reporting is restricted to their own ACCRED sub-perimeter `(A)`; a Super Admin
+sees everything.
 
 ---
 
 ## Back-office tab access
 
-Standard User and Principal User have no access to the back-office. Super Admin has full back-office access but no access to unit module data. The table below covers back-office roles only.
+Each back-office tab maps to one permission above.
 
-| Tab                   | Backoffice Administrator | Super Admin |
-| --------------------- | ------------------------ | ----------- |
-| Reporting             | ✅                       | ✅          |
-| User Management       | ✅                       | ✅          |
-| Documentation Editing | ✅                       | ✅          |
-| UI Texts Editing      | ✅                       | ✅          |
-| Configuration         | ❌                       | ✅          |
-| Pipeline Operations   | ❌                       | ✅          |
-| Logs                  | ❌                       | ✅          |
-
----
-
-## Back-office permission reference
-
-| Permission                   | Action | Backoffice Administrator | Super Admin | Tab                                                |
-| ---------------------------- | ------ | ------------------------ | ----------- | -------------------------------------------------- |
-| `backoffice.users`           | view   | ✅                       | ✅          | Reporting, Documentation Editing, UI Texts Editing |
-| `backoffice.users`           | edit   | ✅                       | ✅          | User Management                                    |
-| `backoffice.users`           | export | ✅                       | ✅          | Reporting (CSV exports)                            |
-| `backoffice.data_management` | view   | ✅                       | ✅          | Configuration (read-only API calls)                |
-| `backoffice.data_management` | export | ✅                       | ✅          | Configuration (CSV downloads)                      |
-| `backoffice.data_management` | edit   | ❌                       | ✅          | Configuration, Pipeline Operations                 |
-| `backoffice.data_management` | sync   | ❌                       | ✅          | Pipeline Operations                                |
+| Tab                   | Permission                       | Backoffice Administrator | Super Admin |
+| --------------------- | -------------------------------- | ------------------------ | ----------- |
+| Reporting             | `backoffice.reporting`           | ✅                       | ✅          |
+| User Management       | `backoffice.users`               | ✅                       | ✅          |
+| Documentation Editing | `backoffice.documentation`       | ✅                       | ✅          |
+| UI Texts Editing      | `backoffice.ui_texts`            | ✅                       | ✅          |
+| Configuration         | `backoffice.configuration`       | ❌                       | ✅          |
+| Pipeline Operations   | `backoffice.pipeline_operations` | ❌                       | ✅          |
+| Logs                  | `backoffice.logs`                | ❌                       | ✅          |
