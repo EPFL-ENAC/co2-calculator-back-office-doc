@@ -1,6 +1,7 @@
 # Data Management Guide
+
 !!! warning "Under construction"
-    This section is under development. So the content may be incomplete and subject to change. 
+This section is under development. So the content may be incomplete and subject to change.
 
 This guide provides comprehensive data validation schemas for all modules in the CO2 Calculator. These specifications help data managers prepare and upload data correctly.
 
@@ -8,70 +9,55 @@ This guide provides comprehensive data validation schemas for all modules in the
 
 ## General Notes
 
-!!! info "Data and factor files"
-    - module_data.csv: data uploaded by the backmanagement office. Here it is important to always have the info of the unit_institutional_id. 
-    - factors.csv: factors that are necessary for the calculation. (emission factors and/or other factors)
-    - module_template.csv: file that has the names of the columns, and a line of example. Users can download it by clicking on "Download CSV Template".
-    - module_test.csv: file that is uploaded via the button "Upload CSV". In this CSV, we have the same columns as in the CSV "template", (and there is no unit_institutional_id since the user is already inside the unit).
- 
+!!! info "Data and factor files" - module_data.csv: data uploaded by the backmanagement office. Here it is important to always have the info of the unit_institutional_id. - factors.csv: factors that are necessary for the calculation. (emission factors and/or other factors) - module_template.csv: file that has the names of the columns, and a line of example. Users can download it by clicking on "Download CSV Template". - module_test.csv: file that is uploaded via the button "Upload CSV". In this CSV, we have the same columns as in the CSV "template", (and there is no unit_institutional_id since the user is already inside the unit).
 
-!!! info "Important Information"
-    - **unit_institutional_id**: For institutional data where relevant, this field contains the unit identifier (e.g., for EPFL: cf_id as 4-digit numbers).
-    - **kg_co2eq**: When this optional field is provided with a value, no calculation is performed for that line - the value is used directly.
-    - **note**: Available across all modules to add any relevant comments or explanations for specific entries.
-    - **Template and Test files**: Used for data entry by unit managers, while data files are typically pre-filled by the back-office.
-    - **Factors files**: Contain emission factors and conversion coefficients required for calculations.
+!!! info "Important Information" - **unit_institutional_id**: For institutional data where relevant, this field contains the unit identifier (e.g., for EPFL: cf_id as 4-digit numbers). - **kg_co2eq**: When this optional field is provided with a value, no calculation is performed for that line - the value is used directly. - **note**: Available across all modules to add any relevant comments or explanations for specific entries. - **Template and Test files**: Used for data entry by unit managers, while data files are typically pre-filled by the back-office. - **Factors files**: Contain emission factors and conversion coefficients required for calculations.
 
-!!! warning "Data Validation"
-    - Order of upload from the configuration back-office: the factors.csv file needs to be uploaded **before** the data.csv file, as certain requirements for data depend on what is given in the factors. 
-    - Rows that don't meet mandatory field requirements or value constraints will be ignored during upload.
-    - Warning messages will be displayed when data doesn't match factor files.
-    - Date formats must follow ISO standard (YYYY-MM-DD).
+!!! warning "Data Validation" - Order of upload from the configuration back-office: the factors.csv file needs to be uploaded **before** the data.csv file, as certain requirements for data depend on what is given in the factors. - Rows that don't meet mandatory field requirements or value constraints will be ignored during upload. - Warning messages will be displayed when data doesn't match factor files. - Date formats must follow ISO standard (YYYY-MM-DD).
 
 ---
 
 ## Headcount
-???+ info "headcount_data_NEW.csv"
 
-    | field | type | mandatory | values constraints | description |
-    |-------|------|-----------|-------------------|-------------|
-    | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits numbers only) |
-    | name | string | ✅ | non-empty string | e.g. First and second name |
-    | function_fr | string | ✅ | - | e.g. Collaborateur.trices scientifique. This is the category that is shown in the french version for the table and used for the graph |
-    | function_en | string | ✅ | - | e.g. Scientific collaborator. This is the category that is shown in the english version for the table and used for the graph |
-    | user_institutional_id | string | ✅ | numbers only | for EPFL: sciper |
-    | fte | float | ✅ | 0 < float ≤ 1 | Full-time equivalent e.g. 1.0, 0.8, 0.05, 0.75 |
-    | note | string | ❌ | - | contains the note if needed |
-
-    
 ???+ info "headcount_data.csv"
 
     | field | type | mandatory | values constraints | description |
     |-------|------|-----------|-------------------|-------------|
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits numbers only) |
     | name | string | ✅ | non-empty string | e.g. First and second name |
-    | position_title | string | ❌ | - | e.g. professor , if `None`, to be filled in the table by the user. This is the category that is shown in the table |
-    | position_category | string | ❌ | within a list define ` professor, scientific_collaborator, postdoctoral_assistant, doctoral_assistant, trainee, technichal_administrative_staff, student, other` can be `None`. This is the category that is used to build the graph. | - |
+    | sius_code | string | ✅ | within `51, 52, 53, 54, 56, 57, 58, 59` | SIUS function code. Used to build the FTE-per-function chart. |
     | user_institutional_id | string | ✅ | numbers only | for EPFL: sciper |
     | fte | float | ✅ | 0 ≤ float ≤ 1 | Full-time equivalent e.g. 1.0, 0.8, 0.05, 0.75 |
     | note | string | ❌ | - | contains the note if needed |
 
     !!! note
-        position_category and fte can be completed in the table directly if not given and have to be completed to validate the module. 
+        `fte` can be completed directly in the table if not provided in the file, and must be filled to validate the module.
+
+    ??? info "SIUS code reference"
+
+        | Code | FR | EN |
+        |------|----|----|
+        | 51 | Enseignant·e·s habilité·e·s à diriger une unité organisationnelle | Professors |
+        | 52 | Autres enseignant·e·s | Other teaching staff |
+        | 53 | Collaborateur·trices scientifiques | Scientific collaborators |
+        | 54 | Assistant·e·s et/ou doctorant·e·s | Scientific and doctoral assistants |
+        | 56 | Personnel de direction de la haute école | Managerial staff |
+        | 57 | Personnel administratif | Administrative staff |
+        | 58 | Personnel de soutien | Support staff |
+        | 59 | Personnel d'exploitation | Operational staff |
 
 ???+ info "headcount_template.csv and headcount_test.csv"
 
     | field | type | mandatory | values constraints | description |
     |-------|------|-----------|-------------------|-------------|
     | name | string | ✅ | non-empty string | e.g. First and second name |
-    | position_title | string | ❌ | - | e.g. professor , if `None`, to be filled in the table by the user. This is the category that is shown in the table |
-    | position_category | string | ❌ | within a list define ` professor, scientific_collaborator, postdoctoral_assistant, doctoral_assistant, trainee, technichal_administrative_staff, student, other` can be `None`. This is the category that is used to build the graph. | - |
+    | sius_code | string | ✅ | within `51, 52, 53, 54, 56, 57, 58, 59` | SIUS function code. Used to build the FTE-per-function chart. |
     | user_institutional_id | string | ✅ | numbers only | for EPFL: sciper |
     | fte | float | ✅ | 0 ≤ float ≤ 1 | Full-time equivalent e.g. 1.0, 0.8 |
     | note | string | ❌ | - | contains the note if needed |
 
     !!! note
-        no test and template for this module - table to delete. 
+        no test and template for this module - table to delete.
 
 ---
 
@@ -90,7 +76,6 @@ This guide provides comprehensive data validation schemas for all modules in the
     | standby_usage_hours_per_week | int | ❌ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given, no calculation is performed on this line |
-
 
 ???+ info "equipments_template.csv and equipments_test.csv"
 
@@ -294,6 +279,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | country_code | string | ✅ | in `ISO 3166-1 alpha-2` format or use `RoW` for rest of the world | e.g. "CH" |
     | municipality | string | ❌ | - | e.g. "Geneva" |
     | keywords | string | ❌ | - | keywords to link the location with the possible different names in the data |
+
 ---
 
 ## Purchases
@@ -509,7 +495,6 @@ This guide provides comprehensive data validation schemas for all modules in the
     | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" if `None` completed in the table. If the correspondence building, room_name, room_type does not exist, use the kwh_per_square_meter for the building, room_type (the room_name does not influence the consumption). |
     | note | string | ❌ | - | contains the note if needed |
 
-    
 ???+ info "building_rooms_reference.csv"
 
     | field | type | mandatory | values constraints | example / notes |
@@ -520,7 +505,6 @@ This guide provides comprehensive data validation schemas for all modules in the
     | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" , can be changed by the user, if changed the corresponding type in `building_rooms_factors.csv` is used (only type and building are taken to compute co2_eq). So it is the room type that is used by default when adding a new line. |
     | room_surface_square_meter | float | ✅ | 0 ≤ float | e.g. 12 |
 
-    
 ???+ info "building_rooms_factors.csv"
 
     | field | type | mandatory | values constraints | example / notes |
@@ -534,8 +518,6 @@ This guide provides comprehensive data validation schemas for all modules in the
     | ef_kg_co2eq_per_kwh | float | ✅ | 0 ≤ float | e.g. 0.125 |
     | energy_type | string | ✅ | `electric, thermal, etc` | e.g. "electric" |
     | conversion_factor | float | ✅ | can be `None` | e.g. 4 , if `None` consider as 1. This is an adjustement factor needed because in some cases the kwh are elec, in other thermique, etc. And we need to bring it to right type to use the emission factors properly.  |
-    
-
 
 ???+ info "building_energycombustions_data.csv"
 
@@ -547,7 +529,6 @@ This guide provides comprehensive data validation schemas for all modules in the
     | quantity | float | ✅ | 0 ≤ float | e.g. 34 |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
-
 
 ???+ info "building_energycombustions_test.csv & building_energycombustions_template.csv"
 
@@ -587,10 +568,9 @@ These categories are related to the headcount. The total FTE is used to compute 
     | kg_per_fte | float | ✅ | 0 ≤ float | e.g. 344 |
 
     !!! note
-        No test and template files 
+        No test and template files
 
 ### Building grey energy
-
 
 ???+ info "building_greyenergy_factors.csv"
 
