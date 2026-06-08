@@ -296,7 +296,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | currency | string | ✅ | in `chf, eur, usd, gbp, aud, etc` format. If not given, chf is used by default. | e.g. eur |
     | purchase_institutional_code | string | ✅ | within `purchases_common_factors.csv` | e.g. UNSPSC code, as to within `purchases_common_factors.csv` |
     | purchase_institutional_description | string | ❌ | - | e.g. UNSPSC description, if not given compute with `purchases_common_factors.csv` |
-    | purchase_additional_code | string | ❌ | within `purchases_common_factors.csv` | e.g. NACRES code, this column is used for the co2 emission calculations. For EPFL: data uploaded from the data manager need tohave this column. But users can add purchases without and a static mapping (contained in the factors) is used for UNSPCS -> NACRES. |
+    | purchase_additional_code | string | ✅ | within `purchases_common_factors.csv` | e.g. NACRES code, this column is used for the co2 emission calculations. For EPFL: data uploaded from the data manager need to have this column. But users can add purchases without and a static mapping (contained in the factors) is used for UNSPCS -> NACRES. |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
 
@@ -332,7 +332,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-dits, numbers only) |
     | name | string | ✅ | non-empty string | e.g. "Liquid nitrogen" |
     | unit | string | ✅ | - | e.g. liter |
-    | annual_consumption | float | ❌ | - | e.g. 45.05 |
+    | annual_consumption | float | ✅ | - | e.g. 45.05 |
     | coef_to_kg | float | ✅ | non negative | e.g. 3.05 |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
@@ -343,7 +343,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | name | string | ✅ | non-empty string | e.g. "Liquid nitrogen" |
     | unit | string | ✅ | - | e.g. liter |
-    | annual_consumption | float | ❌ | - | e.g. 45.05 |
+    | annual_consumption | float | ✅ | - | e.g. 45.05 |
     | coef_to_kg | float | ✅ | non negative | e.g. 3.05 |
     | note | string | ❌ | no constraints | contains the note if needed |
 
