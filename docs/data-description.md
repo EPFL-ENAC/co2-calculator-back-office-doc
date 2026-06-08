@@ -202,9 +202,9 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | category | string | ✅ | within `very_short_haul,short_haul,medium_haul,long_haul` | e.g. "very_short_haul" |
+    | cabin_class | string | ✅ | business, economy, first | flight class to choose the corresponding factor. for EPFL: Premium economy is treated as economy |
     | ef_kg_co2eq_per_km | float | ✅ | 0 ≤ float | e.g. "0.345" |
-    | rfi_adjustement | float | ✅ | 0 ≤ float | The RFI (Radiative Forcing Index) for the methodology should be specified here, e.g. 2, 2.7, 3, etc. This is used to account for the total warming impact of flying. |
-    | class_adjustement | float | ✅ | 0 ≤ float | adjustement factor to take into consideration the class of the flight.  |
+    | rfi_adjustment | float | ✅ | 0 ≤ float | The RFI (Radiative Forcing Index) for the methodology should be specified here, e.g. 2, 2.7, 3, etc. This is used to account for the total warming impact of flying. for EPFL: 1.35, which corresponds to transforming mobitool factors to 2.7 RFI as in atmosfair |
     | min_distance | float | ✅ | in km, unique value | e.g. "300" min distance of the category |
     | max_distance | float | ✅ | in km, unique value | e.g. "1200" max distance of the category |
 
