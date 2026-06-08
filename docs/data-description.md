@@ -164,7 +164,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | service_type | string | ✅ | not empty | e.g. `storage,compute,virtualisation` |
     | provider | string | ✅ | not empty | e.g. firm |
-    | currency | string | ✅ | in `chf, eur` format, not `None`. | e.g. eur |
+    | currency | string | ✅ | in `chf, eur` format, not `None`. | for EPFL -> eur |
     | ef_kg_co2eq_per_currency | float | ✅ | 0 ≤ float | e.g. 0.8 |
 
 ---
