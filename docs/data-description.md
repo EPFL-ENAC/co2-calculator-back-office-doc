@@ -293,7 +293,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | supplier | string  | ❌ | - | e.g. "Bentley Systems International Ltd" |
     | quantity | float | ❌ | 0 ≤ float | e.g. 3 |
     | total_spent_amount | float | ✅ | 0 ≤ float | e.g. 3567 |
-    | currency | string | ✅ | in `chf, eur, usd, gbp, aud, etc` format. If not given, chf is used by default. | e.g. eur |
+    | currency | string | ❌ | in `chf, eur, usd, gbp, aud, etc` format. If not given, chf is used by default. | e.g. eur |
     | purchase_institutional_code | string | ✅ | within `purchases_common_factors.csv` | e.g. UNSPSC code, as to within `purchases_common_factors.csv` |
     | purchase_institutional_description | string | ❌ | - | e.g. UNSPSC description, if not given compute with `purchases_common_factors.csv` |
     | purchase_additional_code | string | ❌ | within `purchases_common_factors.csv` | e.g. NACRES code, this column is used for the co2 emission calculations. For EPFL: data uploaded from the data manager will always have this column filled. But users can add purchases without this code and a static mapping (contained in the factors) is used for UNSPCS -> NACRES. |
@@ -308,7 +308,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | supplier | string  | ❌ | - | e.g. "Bentley Systems International Ltd" |
     | quantity | float | ❌ | 0 ≤ float | e.g. 3 |
     | total_spent_amount | float | ✅ | 0 ≤ float | e.g. 3567 |
-    | currency | string | ✅ | in `chf, eur, usd, gbp, aud, etc` format. If not given, chf is used by default. | e.g. eur |
+    | currency | string | ❌ | in `chf, eur, usd, gbp, aud, etc` format. If not given, chf is used by default. | e.g. eur |
     | purchase_institutional_code | string | ✅ | within `purchases_factors.csv` | e.g. UNSPSC code |
     | purchase_institutional_description | string | ❌ | - | e.g. UNSPSC description, if not given compute with `purchases_common_factors.csv` |
     | purchase_additional_code | string | ❌ | within `purchases_factors.csv` | e.g. NACRES code |
@@ -318,7 +318,7 @@ This guide provides comprehensive data validation schemas for all modules in the
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
-    | currency | string | ✅ | in `chf, eur, usd, gbp, aud, etc` format. If not given, eur is used by default. | e.g. eur |
+    | currency | string | ✅ | in `chf, eur, usd, gbp, aud, etc` format. | for labo1point5 is eur |
     | purchase_category | string | ✅ | within `it_equipment,other,scientific_equipment,services,vehicle,consumable_accessories,biological_chemical_gaseous_product` | e.g. `vehicle`. This columns is used to split the purchases into the subsections in the module. |
     | purchase_institutional_code | string | ✅ | - | e.g. UNSPSC code |
     | translation_key | string | ❌ | key for the translation of the UNSPSC purchase description. If not given, the key is displayed. | e.g. |
