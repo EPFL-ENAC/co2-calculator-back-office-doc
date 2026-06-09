@@ -296,7 +296,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | currency | string | ✅ | in `chf, eur, usd, gbp, aud, etc` format. If not given, chf is used by default. | e.g. eur |
     | purchase_institutional_code | string | ✅ | within `purchases_common_factors.csv` | e.g. UNSPSC code, as to within `purchases_common_factors.csv` |
     | purchase_institutional_description | string | ❌ | - | e.g. UNSPSC description, if not given compute with `purchases_common_factors.csv` |
-    | purchase_additional_code | string | ✅ | within `purchases_common_factors.csv` | e.g. NACRES code, this column is used for the co2 emission calculations. For EPFL: data uploaded from the data manager need to have this column. But users can add purchases without and a static mapping (contained in the factors) is used for UNSPCS -> NACRES. |
+    | purchase_additional_code | string | ❌ | within `purchases_common_factors.csv` | e.g. NACRES code, this column is used for the co2 emission calculations. For EPFL: data uploaded from the data manager will always have this column filled. But users can add purchases without this code and a static mapping (contained in the factors) is used for UNSPCS -> NACRES. |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
 
