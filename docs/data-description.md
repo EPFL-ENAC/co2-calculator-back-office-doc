@@ -565,7 +565,6 @@ These categories are related to the headcount. The total FTE is used to compute 
     | number_of_unit_per_fte | float | ✅ | 0 ≤ float | e.g. for food, this is the kg of food per FTE, for commuting this is the km per FTE, for waste this is the kg of waste per FTE |
     | ef_kg_co2eq_per_unit | float | ✅ | 0 ≤ float | e.g. for food, this is the kg of co2eq per kg of food, for commuting this is the kg of co2eq per km, for waste this is the kg of co2eq per kg of waste |
     | unit | string | ✅ | - | e.g. for food, this is kg, for commuting this is km, for waste this is kg |
-    | kg_per_fte | float | ✅ | 0 ≤ float | e.g. 344 |
 
     !!! note
         No test and template files
