@@ -164,8 +164,8 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | building_location | string | ❌ | can be `None` | e.g. "ECUBLENS" |
     | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
-    | room_name | string | ✅ | digit or name, can be None | if None completed in the table by the user |
-    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` | e.g. "office" , can be changed by the user, if changed the corresponding type in `building_rooms_factors.csv` is used (only type and building are taken to compute co2_eq). So it is the room type that is used by default when adding a new line. |
+    | room_name | string | ✅ | digit or name | i.e. AI0122 |
+    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums`, see table below | The type in this file is the one that is used by default when adding a new line. However, it can be changed by the user, and if changed, the chosen type is used to pair with the corresponding factors in `building_rooms_factors.csv` is used (only type and building are taken to compute co2_eq). |
     | room_surface_square_meter | float | ✅ | 0 ≤ float | e.g. 12 |
 
 ???+ info "building_rooms_factors.csv"
