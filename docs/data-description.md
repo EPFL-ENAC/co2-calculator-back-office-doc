@@ -350,10 +350,10 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits numbers only) |
-    | service_type | string | ✅ | within `external_clouds_factors.csv` | e.g. one of `storage,compute,virtualisation` |
+    | service_type | string | ✅ | within `external_clouds_factors.csv` | e.g. one of `storage,compute` |
     | provider | string | ✅ | within `external_clouds_factors.csv` | e.g."AWS" |
     | spent_amount | float | ✅ | 0 ≤ float | e.g. 299 |
-    | currency | string | ❌ | in `chf, eur` format, not `None`. If not given, eur is used by default. | e.g. eur |
+    | currency | string | ❌ | in `chf, eur` format. If not given, eur is used by default. | e.g. eur |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed |
 
@@ -361,17 +361,17 @@ This guide provides comprehensive data validation schemas for all modules in the
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
-    | service_type | string | ✅ | within `external_clouds_factors.csv` | e.g. one of `storage,compute,virtualisation` |
+    | service_type | string | ✅ | within `external_clouds_factors.csv` | e.g. one of `storage,compute` |
     | provider | string | ✅ | within `external_clouds_factors.csv` | e.g."AWS" |
     | spent_amount | float | ✅ | 0 ≤ float | e.g. 299 |
-    | currency | string | ❌ | in `chf, eur` format, not `None`. If not given, eur is used by default. | e.g. eur |
+    | currency | string | ❌ | in `chf, eur` format. If not given, eur is used by default. | e.g. eur |
     | note | string | ❌ | - | contains the note if need |
 
 ???+ info "external_clouds_factors.csv"
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
-    | service_type | string | ✅ | not empty | e.g. `storage,compute,virtualisation` |
+    | service_type | string | ✅ | not empty | e.g. `storage,compute` |
     | provider | string | ✅ | not empty | e.g. firm |
     | currency | string | ✅ | in `chf, eur` format, not `None`. | for EPFL -> eur |
     | ef_kg_co2eq_per_currency | float | ✅ | 0 ≤ float | e.g. 0.8 |
