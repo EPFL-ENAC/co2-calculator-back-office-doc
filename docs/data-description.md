@@ -446,7 +446,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits, numbers only) |
     | category | string | ✅ | within `processes_factors.csv` | e.g. Refrigerant |
-    | subcategory | string | ✅ | within `processes_factors.csv`, can be `None`  | e.g. R145 |
+    | subcategory | string | ❌ | within `processes_factors.csv`, can be `None`. | If the category is `Refrigerants` the subcategory needs to be specified to choose the corresponding factor.   e.g. R145 |
     | quantity | float | ✅ | in kg, float >=0 | e.g. 34 |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
@@ -456,7 +456,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | category | string | ✅ | within `processes_factors.csv` | e.g. Refrigerant |
-    | subcategory | string | ✅ | within `processes_factors.csv`, can be `None` | e.g. R145 |
+    | subcategory | string |❌ | within `processes_factors.csv`, can be `None`. | If the category is `Refrigerants` the subcategory needs to be specified to choose the corresponding factor.   e.g. R145 |
     | quantity | float | ✅ | in kg, float >=0 | e.g. 34 |
     | note | string | ❌ | - | contains the note if needed |
 
@@ -464,8 +464,8 @@ This guide provides comprehensive data validation schemas for all modules in the
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
-    | category | string | ✅ | - | for EPFL: fluide friorigènes |
-    | subcategory | string | ✅ | - | e.g. NF3 |
+    | category | string | ✅ | - | for EPFL: Refrigerants, CH4, N2O, CO2 |
+    | subcategory | string | ❌ | - | If the category is `Refrigerants` the subcategory is always specified in the factors used at EPFL. |
     | unit | string | ✅ | - | eg kg |
     | ef_kg_co2eq_per_unit | float | ✅ | 0 ≤ float | e.g. 23'500 (kg CO2 eq / kg for SF6) |
 
