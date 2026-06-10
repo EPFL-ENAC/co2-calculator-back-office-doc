@@ -165,7 +165,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | building_location | string | ❌ | can be `None` | e.g. "ECUBLENS" |
     | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
     | room_name | string | ✅ | digit or name | i.e. AI0122 |
-    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums`, see table below | The type in this file is the one that is used by default when adding a new line. However, it can be changed by the user, and if changed, the chosen type is used to pair with the corresponding factors in `building_rooms_factors.csv` is used (only type and building are taken to compute co2_eq). |
+    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums`, see table below | The type in this file is the one that is used by default when adding a new line. However, it can be changed by the user, and if changed, the chosen type is used to pair with the corresponding factors in `building_rooms_factors.csv` (only type and building are taken to compute co2_eq). |
     | room_surface_square_meter | float | ✅ | 0 ≤ float | e.g. 12 |
 
 ???+ info "building_rooms_factors.csv"
@@ -205,7 +205,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits numbers only) |
     | equipment_id | string | ✅ | letters and numbers | This info is used to deal with the updates between one year and the other, in particular for usage hours information. for EPFL: Inventory number |
     | name | string | ✅ | non-empty string | e.g. name of the equipment "GoPro" |
-    | equipment_class | string  | ✅ | within `equipments_factors.csv` | e.g. "Monitor" is used to get power in `equipments_factors.csv`. If `equipment_class` is not empty but the value is not listed to `equipments_factors.csv`, the row is ignored. A warning message is displayed in loading. |
+    | equipment_class | string  | ✅ | within `equipments_factors.csv` | e.g. "Monitor" is used to get power in `equipments_factors.csv`, for EPFL these are the standard inventory classes in ENG. If `equipment_class` is not empty but the value is not listed to `equipments_factors.csv`, the row is ignored. A warning message is displayed in loading. |
     | sub_class | string  | ❌ | within `equipments_factors.csv`, can be `None` | e.g. "Monitor" , the sub_class is filled by the user. Must be in the tuples equipment_class/sub_class within `equipments_factors.csv` else row ignored - (Warning message in loading if data uploaded with the wrong subclass) |
     | active_usage_hours_per_week | int | ❌ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
     | standby_usage_hours_per_week | int | ❌ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
@@ -218,7 +218,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------|
     | equipment_id | string | ✅ | letters and numbers | This info is used to deal with the updates between one year and the other, in particular for usage hours information. for EPFL: Inventory number |
     | name | string | ✅ | non-empty string | e.g. name of the equipment "GoPro" |
-    | equipment_class | string  | ✅ | within `equipments_factors.csv` | e.g. "Monitor" is used to get power in `equipments_factors.csv`. If `equipment_class` is not empty but the value is not listed to `equipments_factors.csv`, the row is ignored. A warning message is displayed in loading. |
+    | equipment_class | string  | ✅ | within `equipments_factors.csv` | e.g. "Monitor" is used to get power in `equipments_factors.csv`, for EPFL these are the standard inventory classes in ENG. If `equipment_class` is not empty but the value is not listed to `equipments_factors.csv`, the row is ignored. A warning message is displayed in loading. |
     | sub_class | string  | ❌ | within `equipments_factors.csv`, can be `None` |  e.g. "Monitor" , the sub_class is filled by the user. Must be in the tuples equipment_class/sub_class within `equipments_factors.csv` else row ignored - (Warning message in loading if data uploaded with the wrong subclass)|
     | active_usage_hours_per_week | int | ❌ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
     | standby_usage_hours_per_week | int | ❌ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
@@ -229,7 +229,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | description |
     |-------|------|-----------|-------------------|-------------|
     | equipment_category | string | ✅ | non-empty string within : {`scientific,it,other`} | e.g. scientific. Case-sensitive |
-    | equipment_class | string  | ✅ | not empty string | e.g. "Evaporator" |
+    | equipment_class | string  | ✅ | not empty string | e.g. "Evaporator". For EPFL these are the standard inventory classes in ENG |
     | sub_class | string | ❌ | can be `None` | e.g. "ultra centrifuges" |
     | active_usage_hours_per_week | int | ✅ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
     | standby_usage_hours_per_week | int | ✅ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
