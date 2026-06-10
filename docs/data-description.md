@@ -524,7 +524,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits, numbers only) |
-    | name | string | ✅ | within `building_combustions_factors.csv` | e.g. "natural gas" |
+    | name | string | ✅ | within `building_combustions_factors.csv` | e.g. "natural_gas" |
     | unit | string | ✅ | in SI format | eg kg , if couple "unit" "name" not found in `building_energycombustions_factors.csv` row ignore with warning message |
     | quantity | float | ✅ | 0 ≤ float | e.g. 34 |
     | note | string | ❌ | - | contains the note if needed |
@@ -534,7 +534,7 @@ This guide provides comprehensive data validation schemas for all modules in the
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
-    | name | string | ✅ | within `building_combustions_factors.csv` | e.g. "gas naturel mix" |
+    | name | string | ✅ | within `building_combustions_factors.csv` | e.g. "natural_gas" |
     | unit | string | ✅ | in SI format | eg kg , if couple "unit" "name" not found in `building_energycombustions_factors.csv` row ignore with warning message |
     | quantity | float | ✅ | 0 ≤ float | e.g. 34 |
     | note | string | ❌ | - | contains the note if needed |
@@ -544,7 +544,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | unit | string | ✅ | in SI format | e.g. kWh |
-    | name | string | ✅ | has to be unique | e.g. gas naturel mix |
+    | name | string | ✅ | has to be unique | e.g. natural_gas |
     | ef_kg_co2eq_per_unit | float | ✅ | 0 ≤ float | e.g. 0.05 |
     
     ??? info "name reference table"
