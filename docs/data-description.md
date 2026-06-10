@@ -554,6 +554,7 @@ This guide provides comprehensive data validation schemas for all modules in the
         | natural_gas | Gaz naturel | Natural gas |
         | heating_oil | Mazout | Heating oil |
         | biomethane | Biométhane | Biomethane |
+        | propane | Propane | Propane |
         | pellets | Granulés de bois | Pellets |
         | forest_chips | Plaquettes forestières | Forest chips |
         | wood_logs | Bois bûche | Wood logs |
