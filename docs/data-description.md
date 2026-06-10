@@ -198,7 +198,7 @@ This guide provides comprehensive data validation schemas for all modules in the
 
 ## Equipment
 
-???+ info "equipments_data.csv"
+???+ info "equipment_data.csv"
 
     | field | type | mandatory | values constraints | description |
     |-------|------|-----------|-------------------|-------------|
@@ -212,7 +212,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given, no calculation is performed on this line |
 
-???+ info "equipments_template.csv and equipments_test.csv"
+???+ info "equipment_template.csv and equipment_test.csv"
 
     | field | type | mandatory | values constraints | description |
     |-------|------|-----------|-------------------|-------------|
@@ -224,7 +224,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | standby_usage_hours_per_week | int | ❌ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
     | note | string | ❌ | - | contains the note if needed |
 
-???+ info "equipments_factors.csv"
+???+ info "equipment_factors.csv"
 
     | field | type | mandatory | values constraints | description |
     |-------|------|-----------|-------------------|-------------|
