@@ -154,7 +154,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | building_location | string | ❌ | can be `None` | e.g. "ECUBLENS" |
     | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
-    | room_name | string | ❌ | digit or name, can be None | if None completed in the table by the user |
+    | room_name | string | ✅ | i.e. AI0122 | If the correspondence (building_name, room_name) is not found in the reference, the row is ignored with a warning message (we do not have the info on squared meters without the name, and so we cannot do the calculation). |
     | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums`, see table below | e.g. "office". it can be modified in the table by the user. If different from buildings_room_reference.csv it overwrites it. This is the information that is used for the calculation. If the correspondence building, room_name, room_type does not exist, use the kwh_per_square_meter for the building, room_type (the room_name does not influence the consumption). |
     | note | string | ❌ | - | contains the note if needed |
 
