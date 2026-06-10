@@ -596,7 +596,7 @@ These categories are related to the headcount. The total FTE is used to compute 
 
 ### Building grey energy
 
-???+ info "building_greyenergy_factors.csv"
+???+ info "building_construction_renovation_factors.csv"
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
