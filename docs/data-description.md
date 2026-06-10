@@ -282,7 +282,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | purchase_additional_code | string | ✅ | - | e.g. NACRES code |
     | ef_kg_co2eq_per_currency | float | ✅ | 0 ≤ float | e.g. 0.1 |
 
-???+ info "purchases_additional_data.csv"
+???+ info "purchases_centralized_data.csv"
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
@@ -294,7 +294,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
 
-???+ info "purchases_additional_test.csv and purchases_additional_template.csv"
+???+ info "purchases_centralized_test.csv and purchases_centralized_template.csv"
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
@@ -304,7 +304,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | coef_to_kg | float | ✅ | non negative | e.g. 3.05 |
     | note | string | ❌ | no constraints | contains the note if needed |
 
-???+ info "purchases_additional_factors.csv"
+???+ info "purchases_centralized_factors.csv"
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
