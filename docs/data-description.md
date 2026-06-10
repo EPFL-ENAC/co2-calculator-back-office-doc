@@ -388,7 +388,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | origin_iata | string | ✅ | IATA code | e.g. "GVA". |
     | destination_iata | string | ✅ | IATA code | e.g. "JFK".|
     | user_institutional_id | string | ✅ | - | e.g. EPFL: SCIPER |
-    | departure_date | string | ❌ | ISO format DD-MM-YYYY | e.g. "15-05-2025" if date format not recognized ignore row, id date not in the carbon report year ignore row. |
+    | departure_date | string | ❌ | ISO format YYYY-MM-DD | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row. If None the row is considered.  |
     | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
     | cabin_class | string | ✅ | within `first,business,economy` | e.g. business. For EPFL when taken from API, premium economy needs to be classifed as eco. |
     | note | string | ❌ | - | contains the note if needed |
@@ -401,7 +401,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | origin_iata | string | ✅ | IATA code | e.g. "GVA" |
     | destination_iata | string | ✅ | IATA code | e.g. "JFK" |
     | user_institutional_id | string | ✅ | - | e.g. EPFL: SCIPER |
-    | departure_date | string | ❌ | ISO format DD-MM-YYYY | e.g. "15-05-2025" if date format not recognized ignore row, id date not in the carbon report year ignore row |
+    | departure_date | string | ❌ | ISO format YYYY-MM-DD | e.g. "2025-05-15 if date format not recognized ignore row, id date not in the carbon report year ignore row. If None the row is considered. |
     | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
     | cabin_class | string | ✅ | within `first,business,economy` | e.g. business |
     | note | string | ❌ | - | contains the note if needed |
@@ -444,7 +444,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | destination_name | string | ✅ | train station name | e.g. "Geneve Cornavin" TBD  it accepts error in naming |
     | destination_country_code | string | ✅ |ISO2 for the country | e.g. CH for switzerland |
     | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER, if not in Headcount ignore row with a warning message 'SCIPER for this trip not in unit. Add the SCIPER in the Headcount module.' |
-    | departure_date | string | ❌ | ISO format DD-MM-YYYY | e.g. "15-05-2025" if date format not recognized ignore row, id date not in the carbon report year ignore row |
+    | departure_date | string | ❌ | ISO format YYYY-MM-DD | e.g. "2025-05-15 if date format not recognized ignore row, id date not in the carbon report year ignore row. If None the row is considered. |
     | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
     | cabin_class | string | ✅ | within `first,second` | e.g. second |
     | note | string | ❌ | - | contains the note if needed |
@@ -462,7 +462,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | destination_name | string | ✅ | train station name | e.g. "Geneve Cornavin" TBD  it accepts error in naming |
     | destination_country_code | string | ✅ |ISO2 for the country | e.g. CH for switzerland |
     | user_institutional_id | string | ✅ | only number | e.g. EPFL: SCIPER, if not in Headcount row ignore |
-    | departure_date | string | ❌ | ISO format DD-MM-YYYY | e.g. "15-05-2025" if date format not recognized ignore row, id date not in the carbon report year ignore row |
+    | departure_date | string | ❌ | ISO format YYYY-MM-DD | e.g. "2025-05-15 if date format not recognized ignore row, id date not in the carbon report year ignore row. If None the row is considered. |
     | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
     | cabin_class | string | ✅ | within `first,second` | e.g. second |
     | note | string | ❌ | - | contains the note if needed |
