@@ -182,6 +182,17 @@ This guide provides comprehensive data validation schemas for all modules in the
     | energy_type | string | ✅ | `electric, thermal, etc` | e.g. "electric" |
     | conversion_factor | float | ❌ | can be `None` | e.g. 4 , if `None` consider as 1. This is an adjustement factor needed because in some cases the kwh are elec, in other thermique, etc. And we need to bring it to right type to use the emission factors properly.  |
 
+
+    ??? info "room_type reference table"
+
+        | name | FR | EN |
+        |------|----|----|
+        | office | Bureau | Office |
+        | miscellaneous | Divers | Miscellaneous |
+        | laboratories | Laboratoires | Laboratories |
+        | archives | Archives | Archives |
+        | libraries | Bibliothèques | Libraries |
+        | auditoriums | Auditoires | Auditoriums |
 ---
 
 
