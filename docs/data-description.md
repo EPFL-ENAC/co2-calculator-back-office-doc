@@ -390,7 +390,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | user_institutional_id | string | ✅ | - | e.g. EPFL: SCIPER |
     | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row. |
     | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
-    | cabin_class | string | ✅ | within `first,business,eco` | e.g. business. For EPFL when taken from API, premium economy needs to be classifed as eco. |
+    | cabin_class | string | ✅ | within `first,business,economy` | e.g. business. For EPFL when taken from API, premium economy needs to be classifed as eco. |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line. |
 
@@ -403,15 +403,15 @@ This guide provides comprehensive data validation schemas for all modules in the
     | user_institutional_id | string | ✅ | - | e.g. EPFL: SCIPER |
     | departure_date | string | ❌ | ISO format | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row |
     | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
-    | cabin_class | string | ✅ | within `first,business,eco` | e.g. business |
+    | cabin_class | string | ✅ | within `first,business,economy` | e.g. business |
     | note | string | ❌ | - | contains the note if needed |
 
 ???+ info "travel_planes_factors.csv"
 
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
-    | category | string | ✅ | within `very_short_haul,short_haul,medium_haul,long_haul` | e.g. "very_short_haul" |
-    | cabin_class | string | ✅ | business, economy, first | flight class to choose the corresponding factor. for EPFL: Premium economy is treated as economy |
+    | category | string | ✅ | within `short_to_medium_haul, medium_to_long_haul` | e.g. "medium_to_long_haul" |
+    | cabin_class | string | ✅ | business, economy, first | flight class to choose the corresponding factor. for EPFL: Premium economy is treated as economy, first class and business class have the same factor for short to mediul haul |
     | ef_kg_co2eq_per_km | float | ✅ | 0 ≤ float | e.g. "0.345" |
     | rfi_adjustment | float | ✅ | 0 ≤ float | The RFI (Radiative Forcing Index) for the methodology should be specified here, e.g. 2, 2.7, 3, etc. This is used to account for the total warming impact of flying. for EPFL: 1.35, which corresponds to transforming mobitool factors to 2.7 RFI as in atmosfair |
     | min_distance | float | ✅ | in km, unique value | e.g. "300" min distance of the category |
