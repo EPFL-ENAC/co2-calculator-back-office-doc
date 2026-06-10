@@ -61,6 +61,130 @@ This guide provides comprehensive data validation schemas for all modules in the
 
 ---
 
+## Process Emissions
+
+???+ info "processemissions_data.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits, numbers only) |
+    | category | string | ✅ | within `processes_factors.csv` | e.g. Refrigerant |
+    | subcategory | string | ❌ | within `processes_factors.csv`, can be `None`. | If the category is `Refrigerants` the subcategory needs to be specified to choose the corresponding factor.   e.g. R145 |
+    | quantity | float | ✅ | in kg, float >=0 | e.g. 34 |
+    | note | string | ❌ | - | contains the note if needed |
+    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
+
+???+ info "processemissions_test.csv and processemissions_template.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | category | string | ✅ | within `processes_factors.csv` | e.g. Refrigerant |
+    | subcategory | string |❌ | within `processes_factors.csv`, can be `None`. | If the category is `Refrigerants` the subcategory needs to be specified to choose the corresponding factor.   e.g. R145 |
+    | quantity | float | ✅ | in kg, float >=0 | e.g. 34 |
+    | note | string | ❌ | - | contains the note if needed |
+
+???+ info "processemissions_factors.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | category | string | ✅ | - | for EPFL: Refrigerants, CH4, N2O, CO2 |
+    | subcategory | string | ❌ | - | If the category is `Refrigerants` the subcategory is always specified in the factors used at EPFL. |
+    | unit | string | ✅ | - | eg kg |
+    | ef_kg_co2eq_per_unit | float | ✅ | 0 ≤ float | e.g. 23'500 (kg CO2 eq / kg for SF6) |
+    
+---
+## Buildings
+
+???+ info "building_energycombustions_data.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits, numbers only) |
+    | name | string | ✅ | within `building_combustions_factors.csv` | e.g. "natural_gas" |
+    | unit | string | ✅ | in SI format | eg kg, kWh , if couple "unit" "name" not found in `building_energycombustions_factors.csv` row ignore with warning message |
+    | quantity | float | ✅ | 0 ≤ float | e.g. 34 |
+    | note | string | ❌ | - | contains the note if needed |
+    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
+
+???+ info "building_energycombustions_test.csv & building_energycombustions_template.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | name | string | ✅ | within `building_combustions_factors.csv` | e.g. "natural_gas" |
+    | unit | string | ✅ | in SI format | eg kg, kWh , if couple "unit" "name" not found in `building_energycombustions_factors.csv` row ignore with warning message |
+    | quantity | float | ✅ | 0 ≤ float | e.g. 34 |
+    | note | string | ❌ | - | contains the note if needed |
+
+???+ info "building_energycombustions_factors.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | unit | string | ✅ | in SI format | e.g. kWh, kg |
+    | name | string | ✅ | has to be unique, see table below | e.g. natural_gas |
+    | ef_kg_co2eq_per_unit | float | ✅ | 0 ≤ float | e.g. 0.05 |
+    
+    ??? info "name reference table"
+
+        | name | FR | EN |
+        |------|----|----|
+        | natural_gas | Gaz naturel | Natural gas |
+        | heating_oil | Mazout | Heating oil |
+        | biomethane | Biométhane | Biomethane |
+        | propane | Propane | Propane |
+        | pellets | Granulés de bois | Pellets |
+        | forest_chips | Plaquettes forestières | Forest chips |
+        | wood_logs | Bois bûche | Wood logs |
+
+        
+???+ info "building_rooms_data.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits, numbers only) |
+    | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
+    | room_name | string | ✅ | i.e. AI0122 | If the correspondence (building_name, room_name) is not found in the reference, the row is ignored with a warning message (we do not have the info on squared meters without the name, and so we cannot do the calculation). |
+    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` | e.g. "office". it can be modified in the table by the user. If different from buildings_room_reference.csv it overwrites it. This is the information that is used for the calculation.  |
+    | room_allocation_ratio | float | ❌ | 0 ≤ float ≤ 1.0 | Describe the allocation of a room for a sinle unit, in case of shared rooms etc... e.g. 0.8. If not given, default to 1 |
+    | note | string | ❌ | - | contains the note if needed |
+    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line. For EPFL, this must be filled for SCITAS, RCP, etc |
+
+???+ info "building_rooms_test.csv and building_rooms_template.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | building_location | string | ❌ | can be `None` | e.g. "ECUBLENS" |
+    | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
+    | room_name | string | ❌ | digit or name, can be None | if None completed in the table by the user |
+    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" if `None` completed in the table. If the correspondence building, room_name, room_type does not exist, use the kwh_per_square_meter for the building, room_type (the room_name does not influence the consumption). |
+    | note | string | ❌ | - | contains the note if needed |
+
+???+ info "building_rooms_reference.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | building_location | string | ❌ | can be `None` | e.g. "ECUBLENS" |
+    | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
+    | room_name | string | ✅ | digit or name, can be None | if None completed in the table by the user |
+    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" , can be changed by the user, if changed the corresponding type in `building_rooms_factors.csv` is used (only type and building are taken to compute co2_eq). So it is the room type that is used by default when adding a new line. |
+    | room_surface_square_meter | float | ✅ | 0 ≤ float | e.g. 12 |
+
+???+ info "building_rooms_factors.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | building_name | string | ✅ | - | for EPFL: BCH,BS... |
+    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office"  |
+    | heating_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
+    | cooling_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
+    | ventilation_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
+    | lighting_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
+    | ef_kg_co2eq_per_kwh | float | ✅ | 0 ≤ float | e.g. 0.125 |
+    | energy_type | string | ✅ | `electric, thermal, etc` | e.g. "electric" |
+    | conversion_factor | float | ❌ | can be `None` | e.g. 4 , if `None` consider as 1. This is an adjustement factor needed because in some cases the kwh are elec, in other thermique, etc. And we need to bring it to right type to use the emission factors properly.  |
+
+---
+
+
 ## Equipment
 
 ???+ info "equipments_data.csv"
@@ -101,6 +225,80 @@ This guide provides comprehensive data validation schemas for all modules in the
     | active_power_w | float | ✅ | ≥ 0 | e.g. 23 |
     | standby_power_w | float | ✅ | ≥ 0 | e.g. 23 |
     | ef_kg_co2eq_per_kwh | float | ✅ | ≥ 0 | e.g. swiss mix 0.125 |
+
+---
+
+## Purchases
+
+???+ info "purchases_common_data.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits, numbers only) |
+    | name | string | ✅ | non-empty string | e.g. "HP Novobook" |
+    | supplier | string  | ❌ | - | e.g. "Bentley Systems International Ltd" |
+    | quantity | float | ❌ | 0 ≤ float | e.g. 3 |
+    | total_spent_amount | float | ✅ | 0 ≤ float | e.g. 3567 |
+    | currency | string | ❌ | in `chf, eur, usd, gbp, aud, etc` format. If not given, chf is used by default. | e.g. eur |
+    | purchase_institutional_code | string | ✅ | within `purchases_common_factors.csv` | e.g. UNSPSC code, as to within `purchases_common_factors.csv` |
+    | purchase_institutional_description | string | ❌ | - | e.g. UNSPSC description, if not given compute with `purchases_common_factors.csv` |
+    | purchase_additional_code | string | ❌ | within `purchases_common_factors.csv` | e.g. NACRES code, this column is used for the co2 emission calculations. For EPFL: data uploaded from the data manager will always have this column filled. But users can add purchases without this code and a static mapping (contained in the factors) is used for UNSPCS -> NACRES. |
+    | note | string | ❌ | - | contains the note if needed |
+    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
+
+???+ info "purchases_common_test.csv and purchases_common_template.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | name | string | ✅ | non-empty string | e.g. "HP Novobook" |
+    | supplier | string  | ❌ | - | e.g. "Bentley Systems International Ltd" |
+    | quantity | float | ❌ | 0 ≤ float | e.g. 3 |
+    | total_spent_amount | float | ✅ | 0 ≤ float | e.g. 3567 |
+    | currency | string | ❌ | in `chf, eur, usd, gbp, aud, etc` format. If not given, chf is used by default. | e.g. eur |
+    | purchase_institutional_code | string | ✅ | within `purchases_factors.csv` | e.g. UNSPSC code |
+    | purchase_institutional_description | string | ❌ | - | e.g. UNSPSC description, if not given compute with `purchases_common_factors.csv` |
+    | purchase_additional_code | string | ❌ | within `purchases_factors.csv` | e.g. NACRES code |
+    | note | string | ❌ | - | contains the note if needed |
+
+???+ info "purchases_common_factors.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | currency | string | ✅ | in `chf, eur, usd, gbp, aud, etc` format. | for labo1point5 is eur |
+    | purchase_category | string | ✅ | within `it_equipment,other,scientific_equipment,services,vehicle,consumable_accessories,biological_chemical_gaseous_product` | e.g. `vehicle`. This columns is used to split the purchases into the subsections in the module. |
+    | purchase_institutional_code | string | ✅ | - | e.g. UNSPSC code |
+    | translation_key | string | ❌ | key for the translation of the UNSPSC purchase description. If not given, the key is displayed. | e.g. |
+    | purchase_additional_code | string | ✅ | - | e.g. NACRES code |
+    | ef_kg_co2eq_per_currency | float | ✅ | 0 ≤ float | e.g. 0.1 |
+
+???+ info "purchases_additional_data.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-dits, numbers only) |
+    | name | string | ✅ | non-empty string | e.g. "Liquid nitrogen" |
+    | unit | string | ✅ | - | e.g. liter |
+    | annual_consumption | float | ✅ | - | e.g. 45.05 |
+    | coef_to_kg | float | ✅ | non negative | e.g. 3.05 |
+    | note | string | ❌ | - | contains the note if needed |
+    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
+
+???+ info "purchases_additional_test.csv and purchases_additional_template.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | name | string | ✅ | non-empty string | e.g. "Liquid nitrogen" |
+    | unit | string | ✅ | - | e.g. liter |
+    | annual_consumption | float | ✅ | - | e.g. 45.05 |
+    | coef_to_kg | float | ✅ | non negative | e.g. 3.05 |
+    | note | string | ❌ | no constraints | contains the note if needed |
+
+???+ info "purchases_additional_factors.csv"
+
+    | field | type | mandatory | values constraints | example / notes |
+    |-------|------|-----------|-------------------|-------------------|
+    | name | string | ✅ | non-empty string | e.g. "Liquid nitrogen" |
+    | ef_kg_co2eq_per_kg | float | ✅ | 0 ≤ float | e.g. 0.1 |
 
 ---
 
@@ -282,79 +480,6 @@ This guide provides comprehensive data validation schemas for all modules in the
 
 ---
 
-## Purchases
-
-???+ info "purchases_common_data.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits, numbers only) |
-    | name | string | ✅ | non-empty string | e.g. "HP Novobook" |
-    | supplier | string  | ❌ | - | e.g. "Bentley Systems International Ltd" |
-    | quantity | float | ❌ | 0 ≤ float | e.g. 3 |
-    | total_spent_amount | float | ✅ | 0 ≤ float | e.g. 3567 |
-    | currency | string | ❌ | in `chf, eur, usd, gbp, aud, etc` format. If not given, chf is used by default. | e.g. eur |
-    | purchase_institutional_code | string | ✅ | within `purchases_common_factors.csv` | e.g. UNSPSC code, as to within `purchases_common_factors.csv` |
-    | purchase_institutional_description | string | ❌ | - | e.g. UNSPSC description, if not given compute with `purchases_common_factors.csv` |
-    | purchase_additional_code | string | ❌ | within `purchases_common_factors.csv` | e.g. NACRES code, this column is used for the co2 emission calculations. For EPFL: data uploaded from the data manager will always have this column filled. But users can add purchases without this code and a static mapping (contained in the factors) is used for UNSPCS -> NACRES. |
-    | note | string | ❌ | - | contains the note if needed |
-    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
-
-???+ info "purchases_common_test.csv and purchases_common_template.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | name | string | ✅ | non-empty string | e.g. "HP Novobook" |
-    | supplier | string  | ❌ | - | e.g. "Bentley Systems International Ltd" |
-    | quantity | float | ❌ | 0 ≤ float | e.g. 3 |
-    | total_spent_amount | float | ✅ | 0 ≤ float | e.g. 3567 |
-    | currency | string | ❌ | in `chf, eur, usd, gbp, aud, etc` format. If not given, chf is used by default. | e.g. eur |
-    | purchase_institutional_code | string | ✅ | within `purchases_factors.csv` | e.g. UNSPSC code |
-    | purchase_institutional_description | string | ❌ | - | e.g. UNSPSC description, if not given compute with `purchases_common_factors.csv` |
-    | purchase_additional_code | string | ❌ | within `purchases_factors.csv` | e.g. NACRES code |
-    | note | string | ❌ | - | contains the note if needed |
-
-???+ info "purchases_common_factors.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | currency | string | ✅ | in `chf, eur, usd, gbp, aud, etc` format. | for labo1point5 is eur |
-    | purchase_category | string | ✅ | within `it_equipment,other,scientific_equipment,services,vehicle,consumable_accessories,biological_chemical_gaseous_product` | e.g. `vehicle`. This columns is used to split the purchases into the subsections in the module. |
-    | purchase_institutional_code | string | ✅ | - | e.g. UNSPSC code |
-    | translation_key | string | ❌ | key for the translation of the UNSPSC purchase description. If not given, the key is displayed. | e.g. |
-    | purchase_additional_code | string | ✅ | - | e.g. NACRES code |
-    | ef_kg_co2eq_per_currency | float | ✅ | 0 ≤ float | e.g. 0.1 |
-
-???+ info "purchases_additional_data.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-dits, numbers only) |
-    | name | string | ✅ | non-empty string | e.g. "Liquid nitrogen" |
-    | unit | string | ✅ | - | e.g. liter |
-    | annual_consumption | float | ✅ | - | e.g. 45.05 |
-    | coef_to_kg | float | ✅ | non negative | e.g. 3.05 |
-    | note | string | ❌ | - | contains the note if needed |
-    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
-
-???+ info "purchases_additional_test.csv and purchases_additional_template.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | name | string | ✅ | non-empty string | e.g. "Liquid nitrogen" |
-    | unit | string | ✅ | - | e.g. liter |
-    | annual_consumption | float | ✅ | - | e.g. 45.05 |
-    | coef_to_kg | float | ✅ | non negative | e.g. 3.05 |
-    | note | string | ❌ | no constraints | contains the note if needed |
-
-???+ info "purchases_additional_factors.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | name | string | ✅ | non-empty string | e.g. "Liquid nitrogen" |
-    | ef_kg_co2eq_per_kg | float | ✅ | 0 ≤ float | e.g. 0.1 |
-
----
 
 ## Research Facilities
 
@@ -435,129 +560,6 @@ This guide provides comprehensive data validation schemas for all modules in the
     | researchfacility_type | string | ✅ | - | e.g. mice |
     | total_use | float | ✅ | 0 ≤ float, in the unit of "use_unit" | e.g. 34 |
     | use_unit | string | ✅ | - | e.g. housing |
-
----
-
-## Process Emissions
-
-???+ info "processemissions_data.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits, numbers only) |
-    | category | string | ✅ | within `processes_factors.csv` | e.g. Refrigerant |
-    | subcategory | string | ❌ | within `processes_factors.csv`, can be `None`. | If the category is `Refrigerants` the subcategory needs to be specified to choose the corresponding factor.   e.g. R145 |
-    | quantity | float | ✅ | in kg, float >=0 | e.g. 34 |
-    | note | string | ❌ | - | contains the note if needed |
-    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
-
-???+ info "processemissions_test.csv and processemissions_template.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | category | string | ✅ | within `processes_factors.csv` | e.g. Refrigerant |
-    | subcategory | string |❌ | within `processes_factors.csv`, can be `None`. | If the category is `Refrigerants` the subcategory needs to be specified to choose the corresponding factor.   e.g. R145 |
-    | quantity | float | ✅ | in kg, float >=0 | e.g. 34 |
-    | note | string | ❌ | - | contains the note if needed |
-
-???+ info "processemissions_factors.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | category | string | ✅ | - | for EPFL: Refrigerants, CH4, N2O, CO2 |
-    | subcategory | string | ❌ | - | If the category is `Refrigerants` the subcategory is always specified in the factors used at EPFL. |
-    | unit | string | ✅ | - | eg kg |
-    | ef_kg_co2eq_per_unit | float | ✅ | 0 ≤ float | e.g. 23'500 (kg CO2 eq / kg for SF6) |
-    
----
-
-## Buildings
-
-???+ info "building_rooms_data.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits, numbers only) |
-    | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
-    | room_name | string | ✅ | i.e. AI0122 | If the correspondence (building_name, room_name) is not found in the reference, the row is ignored with a warning message (we do not have the info on squared meters without the name, and so we cannot do the calculation). |
-    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` | e.g. "office". it can be modified in the table by the user. If different from buildings_room_reference.csv it overwrites it. This is the information that is used for the calculation.  |
-    | room_allocation_ratio | float | ❌ | 0 ≤ float ≤ 1.0 | Describe the allocation of a room for a sinle unit, in case of shared rooms etc... e.g. 0.8. If not given, default to 1 |
-    | note | string | ❌ | - | contains the note if needed |
-    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line. For EPFL, this must be filled for SCITAS, RCP, etc |
-
-???+ info "building_rooms_test.csv and building_rooms_template.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | building_location | string | ❌ | can be `None` | e.g. "ECUBLENS" |
-    | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
-    | room_name | string | ❌ | digit or name, can be None | if None completed in the table by the user |
-    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" if `None` completed in the table. If the correspondence building, room_name, room_type does not exist, use the kwh_per_square_meter for the building, room_type (the room_name does not influence the consumption). |
-    | note | string | ❌ | - | contains the note if needed |
-
-???+ info "building_rooms_reference.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | building_location | string | ❌ | can be `None` | e.g. "ECUBLENS" |
-    | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
-    | room_name | string | ✅ | digit or name, can be None | if None completed in the table by the user |
-    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" , can be changed by the user, if changed the corresponding type in `building_rooms_factors.csv` is used (only type and building are taken to compute co2_eq). So it is the room type that is used by default when adding a new line. |
-    | room_surface_square_meter | float | ✅ | 0 ≤ float | e.g. 12 |
-
-???+ info "building_rooms_factors.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | building_name | string | ✅ | - | for EPFL: BCH,BS... |
-    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office"  |
-    | heating_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
-    | cooling_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
-    | ventilation_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
-    | lighting_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
-    | ef_kg_co2eq_per_kwh | float | ✅ | 0 ≤ float | e.g. 0.125 |
-    | energy_type | string | ✅ | `electric, thermal, etc` | e.g. "electric" |
-    | conversion_factor | float | ❌ | can be `None` | e.g. 4 , if `None` consider as 1. This is an adjustement factor needed because in some cases the kwh are elec, in other thermique, etc. And we need to bring it to right type to use the emission factors properly.  |
-
-???+ info "building_energycombustions_data.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits, numbers only) |
-    | name | string | ✅ | within `building_combustions_factors.csv` | e.g. "natural_gas" |
-    | unit | string | ✅ | in SI format | eg kg , if couple "unit" "name" not found in `building_energycombustions_factors.csv` row ignore with warning message |
-    | quantity | float | ✅ | 0 ≤ float | e.g. 34 |
-    | note | string | ❌ | - | contains the note if needed |
-    | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
-
-???+ info "building_energycombustions_test.csv & building_energycombustions_template.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | name | string | ✅ | within `building_combustions_factors.csv` | e.g. "natural_gas" |
-    | unit | string | ✅ | in SI format | eg kg , if couple "unit" "name" not found in `building_energycombustions_factors.csv` row ignore with warning message |
-    | quantity | float | ✅ | 0 ≤ float | e.g. 34 |
-    | note | string | ❌ | - | contains the note if needed |
-
-???+ info "building_energycombustions_factors.csv"
-
-    | field | type | mandatory | values constraints | example / notes |
-    |-------|------|-----------|-------------------|-------------------|
-    | unit | string | ✅ | in SI format | e.g. kWh |
-    | name | string | ✅ | has to be unique | e.g. natural_gas |
-    | ef_kg_co2eq_per_unit | float | ✅ | 0 ≤ float | e.g. 0.05 |
-    
-    ??? info "name reference table"
-
-        | name | FR | EN |
-        |------|----|----|
-        | natural_gas | Gaz naturel | Natural gas |
-        | heating_oil | Mazout | Heating oil |
-        | biomethane | Biométhane | Biomethane |
-        | propane | Propane | Propane |
-        | pellets | Granulés de bois | Pellets |
-        | forest_chips | Plaquettes forestières | Forest chips |
-        | wood_logs | Bois bûche | Wood logs |
 
 ---
 
