@@ -468,7 +468,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | subcategory | string | ❌ | - | If the category is `Refrigerants` the subcategory is always specified in the factors used at EPFL. |
     | unit | string | ✅ | - | eg kg |
     | ef_kg_co2eq_per_unit | float | ✅ | 0 ≤ float | e.g. 23'500 (kg CO2 eq / kg for SF6) |
-
+    
 ---
 
 ## Buildings
@@ -546,6 +546,17 @@ This guide provides comprehensive data validation schemas for all modules in the
     | unit | string | ✅ | in SI format | e.g. kWh |
     | name | string | ✅ | has to be unique | e.g. gas naturel mix |
     | ef_kg_co2eq_per_unit | float | ✅ | 0 ≤ float | e.g. 0.05 |
+    
+    ??? info "name reference table"
+
+        | name | FR | EN |
+        |------|----|----|
+        | natural_gas | Gaz naturel | Natural gas |
+        | heating_oil | Mazout | Heating oil |
+        | biomethane | Biométhane | Biomethane |
+        | pellets | Granulés de bois | Pellets |
+        | forest_chips | Plaquettes forestières | Forest chips |
+        | wood_logs | Bois bûche | Wood logs |
 
 ---
 
