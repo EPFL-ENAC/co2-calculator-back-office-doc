@@ -143,7 +143,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits, numbers only) |
     | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
     | room_name | string | ✅ | i.e. AI0122 | If the correspondence (building_name, room_name) is not found in the reference, the row is ignored with a warning message (we do not have the info on squared meters without the name, and so we cannot do the calculation). |
-    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` | e.g. "office". it can be modified in the table by the user. If different from buildings_room_reference.csv it overwrites it. This is the information that is used for the calculation.  |
+    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums`, see table below | e.g. "office". it can be modified in the table by the user. If different from buildings_room_reference.csv it overwrites it. This is the information that is used for the calculation.  |
     | room_allocation_ratio | float | ❌ | 0 ≤ float ≤ 1.0 | Describe the allocation of a room for a sinle unit, in case of shared rooms etc... e.g. 0.8. If not given, default to 1 |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line. For EPFL, this must be filled for SCITAS, RCP, etc |
@@ -155,7 +155,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | building_location | string | ❌ | can be `None` | e.g. "ECUBLENS" |
     | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
     | room_name | string | ❌ | digit or name, can be None | if None completed in the table by the user |
-    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" if `None` completed in the table. If the correspondence building, room_name, room_type does not exist, use the kwh_per_square_meter for the building, room_type (the room_name does not influence the consumption). |
+    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums`, see table below | e.g. "office". it can be modified in the table by the user. If different from buildings_room_reference.csv it overwrites it. This is the information that is used for the calculation. If the correspondence building, room_name, room_type does not exist, use the kwh_per_square_meter for the building, room_type (the room_name does not influence the consumption). |
     | note | string | ❌ | - | contains the note if needed |
 
 ???+ info "building_rooms_reference.csv"
@@ -165,7 +165,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | building_location | string | ❌ | can be `None` | e.g. "ECUBLENS" |
     | building_name | string | ✅ | within `building_rooms_factors.csv` | e.g. GC |
     | room_name | string | ✅ | digit or name, can be None | if None completed in the table by the user |
-    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office" , can be changed by the user, if changed the corresponding type in `building_rooms_factors.csv` is used (only type and building are taken to compute co2_eq). So it is the room type that is used by default when adding a new line. |
+    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` | e.g. "office" , can be changed by the user, if changed the corresponding type in `building_rooms_factors.csv` is used (only type and building are taken to compute co2_eq). So it is the room type that is used by default when adding a new line. |
     | room_surface_square_meter | float | ✅ | 0 ≤ float | e.g. 12 |
 
 ???+ info "building_rooms_factors.csv"
@@ -173,7 +173,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | building_name | string | ✅ | - | for EPFL: BCH,BS... |
-    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums` or `None` | e.g. "office"  |
+    | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums`, see table below | e.g. "office"  |
     | heating_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
     | cooling_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
     | ventilation_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
