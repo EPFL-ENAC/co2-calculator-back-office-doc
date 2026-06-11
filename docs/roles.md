@@ -16,7 +16,7 @@ A person can hold multiple roles simultaneously. For example, a lab manager migh
 | `calco2.user.standard`     | **Standard User**            | CO2 Calculator | Unit member with access to their own travel and cloud/AI module entries                         |
 | `calco2.user.principal`    | **Principal User**           | CO2 Calculator | Unit manager with full access to all modules for their unit, and can assign Standard User roles |
 | `calco2.backoffice.metier` | **Backoffice Administrator** | Back-office    | Day-to-day back-office operations: reporting, user management, documentation                    |
-| `calco2.superadmin`        | **Super Admin**              | Back-office    | Full back-office access including sensitive configuration and pipeline controls                 |
+| `calco2.backoffice.admin`        | **Super Admin**              | Back-office    | Full back-office access including sensitive configuration and pipeline controls                 |
 
 ---
 
