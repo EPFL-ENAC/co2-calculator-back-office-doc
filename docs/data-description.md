@@ -279,7 +279,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | purchase_category | string | ✅ | within `it_equipment,other_purchases,scientific_equipment,services,vehicles,consumable_accessories,biological_chemical_gaseous_product` | e.g. `vehicle`. This columns is used to split the purchases into the subsections in the module. |
     | purchase_institutional_code | string | ✅ | - | e.g. UNSPSC code |
     | purchase_institutional_description | string | ❌ | - | e.g. UNSPSC description, in english |
-    | purchase_additional_code | string | ✅ | - | e.g. NACRES code |
+    | purchase_additional_code | string | ❌ | - | e.g. NACRES code, optional because for EPFL we add a line per UNSPSC with the average to be used for purchases added by the user |
     | ef_kg_co2eq_per_currency | float | ✅ | 0 ≤ float | e.g. 0.1 |
 
 ???+ info "purchases_centralized_data.csv"
