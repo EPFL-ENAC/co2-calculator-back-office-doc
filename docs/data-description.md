@@ -83,7 +83,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (4-digits, numbers only) |
     | category | string | ✅ | within `processes_factors.csv` | e.g. Refrigerant |
     | subcategory | string | ❌ | within `processes_factors.csv`, can be `None`. | If the category is `Refrigerants` the subcategory needs to be specified to choose the corresponding factor.   e.g. R145 |
-    | quantity | float | ✅ | in kg, float >=0 | e.g. 34 |
+    | quantity_kg | float | ✅ | in kg, float >=0 | e.g. 34 |
     | note | string | ❌ | - | contains the note if needed |
     | kg_co2eq | float | ❌ | - | if given no calculation is performed for the line |
 
@@ -93,7 +93,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | category | string | ✅ | within `processes_factors.csv` | e.g. Refrigerant |
     | subcategory | string |❌ | within `processes_factors.csv`, can be `None`. | If the category is `Refrigerants` the subcategory needs to be specified to choose the corresponding factor.   e.g. R145 |
-    | quantity | float | ✅ | in kg, float >=0 | e.g. 34 |
+    | quantity_kg | float | ✅ | in kg, float >=0 | e.g. 34 |
     | note | string | ❌ | - | contains the note if needed |
 
 ???+ info "processemissions_factors.csv"
