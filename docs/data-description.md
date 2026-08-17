@@ -387,7 +387,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | unit_institutional_id | string | ✅ | numbers only | for EPFL: cf_id (numbers only) |
     | origin_iata | string | ✅ | IATA code | e.g. "GVA". |
     | destination_iata | string | ✅ | IATA code | e.g. "JFK".|
-    | user_institutional_id | string | ✅ | - | e.g. EPFL: SCIPER |
+    | user_institutional_id | string | ❌ | - | e.g. EPFL: SCIPER. It is not mandatory so that users can add travels also for external people, people outside the unit, etc. Data from the backoffice however should have a SCIPER. |
     | departure_date | string | ❌ | ISO format YYYY-MM-DD | e.g. "2025-05-15" if date format not recognized ignore row, id date not in the carbon report year ignore row. If None the row is considered.  |
     | number_of_trips | int | ✅ | 1 ≤ int | e.g. 2 |
     | cabin_class | string | ✅ | within `first,business,economy` | e.g. business. For EPFL when taken from API, premium economy needs to be classifed as eco. |
