@@ -600,7 +600,7 @@ These categories are related to the headcount. The total FTE is used to compute 
     | headcount_category | string | ✅ | within `food, commuting, waste` | e.g. food |
     | headcount_class | string | ✅ | within the class of the categories, food: `vegetarian, non_vegetarian` , commuting: `walking, cycling, powered_two_wheeler, public_transport, car`, waste: `incineration, composting, biogas, recycling` | the class of the category|
     | headcount_subclass | string | ❌ | none | the subclass of the category if needed |
-    | number_of_unit_per_fte | float | ✅ | 0 ≤ float | e.g. for food, this is the kg of food per FTE, for commuting this is the km per FTE, for waste this is the kg of waste per FTE |
+    | number_of_unit_per_fte | float | ✅ | 0 ≤ float | e.g. for food, this is the kg of food per FTE, for commuting this is the total km per FTE for the reference year, for waste this is the total kg of waste per FTE for the reference year |
     | ef_kg_co2eq_per_unit | float | ✅ | 0 ≤ float | e.g. for food, this is the kg of co2eq per kg of food, for commuting this is the kg of co2eq per km, for waste this is the kg of co2eq per kg of waste |
     | unit | string | ✅ | - | e.g. for food, this is kg, for commuting this is km, for waste this is kg |
 
