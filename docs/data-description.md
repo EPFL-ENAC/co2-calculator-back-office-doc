@@ -23,7 +23,8 @@ This guide provides comprehensive data validation schemas for all modules in the
 - **Factors files**: Contain emission factors and conversion coefficients required for calculations.
 
 !!! warning "Data Validation" 
-- Order of upload from the configuration back-office: the factors.csv file needs to be uploaded **before** the data.csv file, as certain requirements for data depend on what is given in the factors.
+- Order of upload from the configuration back-office: first upload factors, then references, then data. The factors.csv file needs to be uploaded **before** the reference.csv files, and the reference.csv file needs to be uploaded **before** data.csv file, this allows certain validation rules to be checked properly.
+- For research facilities only, a button 'compute missing factors' needs to be pushed in order to calculate the factors for all research facilities for which the info is not given via the .csv. This needs to be done after the rest of the modules are completed. If not done, the contribution to co2 emissions of these research facilities will be 0. 
 - Rows that don't meet mandatory field requirements or value constraints will be ignored during upload.
 - Warning messages will be displayed when data doesn't match factor files.
 - Date formats must follow ISO standard (YYYY-MM-DD).
