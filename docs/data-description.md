@@ -24,10 +24,10 @@ This guide provides comprehensive data validation schemas for all modules in the
 
 !!! warning "Data Validation" 
 - Order of upload from the configuration back-office: first upload factors, then references, then data. The factors.csv file needs to be uploaded **before** the reference.csv files, and the reference.csv file needs to be uploaded **before** data.csv file, this allows certain validation rules to be checked properly.
-- For research facilities only, a button 'compute missing factors' needs to be pushed in order to calculate the factors for all research facilities for which the info is not given via the .csv. This needs to be done after the rest of the modules are completed. If not done, the contribution to co2 emissions of these research facilities will be 0. 
 - Rows that don't meet mandatory field requirements or value constraints will be ignored during upload.
 - Warning messages will be displayed when data doesn't match factor files.
 - Date formats must follow ISO standard (YYYY-MM-DD).
+- For research facilities only, a button 'compute missing factors' needs to be pushed in order to calculate the factors for all research facilities for which the info is not given via the .csv. This needs to be done after the rest of the modules are completed. If not done, the contribution to co2 emissions of these research facilities will be 0. 
 
 ---
 
@@ -69,9 +69,6 @@ This guide provides comprehensive data validation schemas for all modules in the
     | user_institutional_id | string | ✅ | numbers only | for EPFL: sciper |
     | fte | float | ✅ | 0 ≤ float ≤ 1 | Full-time equivalent e.g. 1.0, 0.8 |
     | note | string | ❌ | - | contains the note if needed |
-
-    !!! note
-        no test and template for this module - table to delete.
 
 ---
 
@@ -540,6 +537,9 @@ This guide provides comprehensive data validation schemas for all modules in the
     | total_use | float | ✅ | 0 ≤ float, in the unit of "use_unit" | e.g. 34 |
     | use_unit | string | ✅ | - | typically currency, time or count : `chf` if total_use calculated by billing, or time in `hrs` or other. This info appears in the table for the users. |
 
+!!! note
+        Important to push on the button 'compute missing factor' to calculate the kg_co2eq_sum for research facilities where this info was not known, through the calculator computation. If not done, the contribution of these research facilities will be 0. 
+
 ???+ info "researchfacilities_animals_data.csv"
 
     | field | type | mandatory | values constraints | example / notes |
@@ -585,6 +585,9 @@ This guide provides comprehensive data validation schemas for all modules in the
     | researchfacility_type | string | ✅ | - | e.g. mice |
     | total_use | float | ✅ | 0 ≤ float, in the unit of "use_unit" | e.g. 34 |
     | use_unit | string | ✅ | - | e.g. housing |
+
+!!! note
+        Important to push on the button 'compute missing factor' to calculate the kg_co2eq_sum_module_submodule where this info was not known, through the calculator computation. If not done, the contribution of these modules/submodules will be 0. 
 
 ---
 
