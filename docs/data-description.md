@@ -538,7 +538,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | use_unit | string | ✅ | - | typically currency, time or count : `chf` if total_use calculated by billing, or time in `hrs` or other. This info appears in the table for the users. |
 
 !!! note
-        Important to push on the button 'compute missing factor' to calculate the kg_co2eq_sum for research facilities where this info was not known, through the calculator computation. If not done, the contribution of these research facilities will be 0. 
+    Important to push on the button 'compute missing factor' to calculate the kg_co2eq_sum for research facilities where this info was not known, through the calculator computation. If not done, the contribution of these research facilities will be 0. 
 
 ???+ info "researchfacilities_animals_data.csv"
 
@@ -587,7 +587,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | use_unit | string | ✅ | - | e.g. housing |
 
 !!! note
-        Important to push on the button 'compute missing factor' to calculate the kg_co2eq_sum_module_submodule where this info was not known, through the calculator computation. If not done, the contribution of these modules/submodules will be 0. 
+    Important to push on the button 'compute missing factor' to calculate the kg_co2eq_sum_module_submodule where this info was not known, through the calculator computation. If not done, the contribution of these modules/submodules will be 0. 
 
 ---
 
