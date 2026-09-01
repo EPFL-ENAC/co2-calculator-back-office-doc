@@ -22,6 +22,11 @@ This guide provides comprehensive data validation schemas for all modules in the
 - **Template and Test files**: Used for data entry by unit managers, while data files are typically pre-filled by the back-office.
 - **Factors files**: Contain emission factors and conversion coefficients required for calculations.
 
+!!! info "Optional translation columns in factors files"
+- Some `factors.csv` files accept an **optional** `<field>_fr` column carrying the French label of a `<field>` shown to the users.
+- **Convention**: `<field>_fr` sits immediately after its base column; a blank cell falls back to the English value.
+- Concerned files and columns: `equipment_factors.csv` (`equipment_class_fr`, `sub_class_fr`), `purchases_common_factors.csv` (`purchase_institutional_description_fr`), `building_rooms_factors.csv` (`room_type_fr`), `researchfacilities_animals_factors.csv` (`researchfacility_type_fr`), `external_ai_factors.csv` (`usage_type_fr`), `external_clouds_factors.csv` (`service_type_fr`), `processemissions_factors.csv` (`category_fr`, `subcategory_fr`).
+
 !!! warning "Data Validation" 
 - Order of upload from the configuration back-office: first upload factors, then references, then data. The factors.csv file needs to be uploaded **before** the reference.csv files, and the reference.csv file needs to be uploaded **before** data.csv file, this allows certain validation rules to be checked properly.
 - Rows that don't meet mandatory field requirements or value constraints will be ignored during upload.
@@ -99,7 +104,9 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | category | string | ✅ | - | for EPFL: Refrigerants, CH4, N2O, CO2 |
+    | category_fr | string | ❌ | - | Optional French translation of `category`. Placed immediately after `category`; if the cell is empty, the English value is used. |
     | subcategory | string | ❌ | - | If the category is `Refrigerants` the subcategory is always specified in the factors used at EPFL. |
+    | subcategory_fr | string | ❌ | - | Optional French translation of `subcategory`. Placed immediately after `subcategory`; if the cell is empty, the English value is used. |
     | unit | string | ✅ | - | eg kg |
     | ef_kg_co2eq_per_unit | float | ✅ | 0 ≤ float | e.g. 23'500 (kg CO2 eq / kg for SF6) |
     
@@ -185,6 +192,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | building_name | string | ✅ | - | for EPFL: BCH,BS... |
     | room_type | string | ✅ | within `office, miscellaneous, laboratories, archives, libraries, auditoriums`, see table below | e.g. "office"  |
+    | room_type_fr | string | ❌ | - | Optional French translation of `room_type`. Placed immediately after `room_type`; if the cell is empty, the English value is used. |
     | heating_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
     | cooling_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
     | ventilation_kwh_per_square_meter | float | ✅ | 0 ≤ float | e.g. 2.3. These are the consumption hypotheses in squared meters for the given building and type of room. This column gives the hypotheses for all buildings, which are used for the calculation also when the data are input by the users (via the upload .csv)  |
@@ -241,7 +249,9 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------|
     | equipment_category | string | ✅ | non-empty string within : {`scientific,it,other`} | e.g. scientific. Case-sensitive |
     | equipment_class | string  | ✅ | not empty string | e.g. "Evaporator". For EPFL these are the standard inventory classes in ENG |
+    | equipment_class_fr | string | ❌ | - | Optional French translation of `equipment_class`. Placed immediately after `equipment_class`; if the cell is empty, the English value is used. |
     | sub_class | string | ❌ | can be `None` | e.g. "Vacuum evaporators" |
+    | sub_class_fr | string | ❌ | - | Optional French translation of `sub_class`. Placed immediately after `sub_class`; if the cell is empty, the English value is used. |
     | active_usage_hours_per_week | int | ✅ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
     | standby_usage_hours_per_week | int | ✅ | 0 ≤ int ≤ 168 | e.g. 23. The sum of active + passive must be ≤ 168 |
     | active_power_w | float | ✅ | ≥ 0 | e.g. 23 |
@@ -290,6 +300,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | purchase_category | string | ✅ | within `it_equipment,other_purchases,scientific_equipment,services,vehicles,consumable_accessories,biological_chemical_gaseous_product` | e.g. `vehicle`. This columns is used to split the purchases into the subsections in the module. |
     | purchase_institutional_code | string | ✅ | - | e.g. UNSPSC code |
     | purchase_institutional_description | string | ❌ | - | e.g. UNSPSC description, in english |
+    | purchase_institutional_description_fr | string | ❌ | - | Optional French translation of `purchase_institutional_description`. Placed immediately after `purchase_institutional_description`; if the cell is empty, the English value is used. |
     | purchase_additional_code | string | ❌ | - | e.g. NACRES code, optional because for EPFL we add a line per UNSPSC with the average to be used for purchases added by the user |
     | ef_kg_co2eq_per_currency | float | ✅ | 0 ≤ float | e.g. 0.1 |
 
@@ -354,6 +365,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     |-------|------|-----------|-------------------|-------------------|
     | provider | string | ✅ | - | e.g. name of the firm "Google" |
     | usage_type | string | ✅ | - | e.g. type of use "text,video,image" |
+    | usage_type_fr | string | ❌ | - | Optional French translation of `usage_type`. Placed immediately after `usage_type`; if the cell is empty, the English value is used. |
     | ef_kg_co2eq_per_request | float | ✅ | 0 ≤ float | e.g. "0.05" |
 
 ???+ info "external_clouds_data.csv"
@@ -383,6 +395,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | field | type | mandatory | values constraints | example / notes |
     |-------|------|-----------|-------------------|-------------------|
     | service_type | string | ✅ | not empty | e.g. `storage,compute` |
+    | service_type_fr | string | ❌ | - | Optional French translation of `service_type`. Placed immediately after `service_type`; if the cell is empty, the English value is used. |
     | provider | string | ✅ | not empty | e.g. firm |
     | currency | string | ✅ | in `chf, eur, usd` format, not `None`. | for EPFL -> eur |
     | ef_kg_co2eq_per_currency | float | ✅ | 0 ≤ float | e.g. 0.8 |
@@ -583,6 +596,7 @@ This guide provides comprehensive data validation schemas for all modules in the
     | kg_co2eq_sum_purchases_additional | float | ❌ | 0 ≤ float | e.g. 3555, not mandatory because the calculator is used to compute these results. however if this quantity is given here, it is taken instead of the calculator computation. It corresponds to the co2 for the research facility coming from purchases additional |
     | kg_co2eq_sum_equipments | float | ❌ | 0 ≤ float | e.g. 3555, not mandatory because the calculator is used to compute these results. however if this quantity is given here, it is taken instead of the calculator computation. It corresponds to the co2 for the research facility coming from equipments |
     | researchfacility_type | string | ✅ | - | e.g. mice |
+    | researchfacility_type_fr | string | ❌ | - | Optional French translation of `researchfacility_type`. Placed immediately after `researchfacility_type`; if the cell is empty, the English value is used. |
     | total_use | float | ✅ | 0 ≤ float, in the unit of "use_unit" | e.g. 34 |
     | use_unit | string | ✅ | - | e.g. housing |
 
