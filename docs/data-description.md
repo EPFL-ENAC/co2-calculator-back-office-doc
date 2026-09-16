@@ -222,6 +222,18 @@ This guide provides comprehensive data validation schemas for all modules in the
         | auditoriums | Auditoires | Auditoriums |
 ---
 
+???+ info "test calculation building_rooms"
+
+    | building_name | room_name | room_type | room_allocation_ratio | kg_co2eq | note | expected_result |
+    |----------|-----------|-----------|------|----------|------|-----------------|
+    | AAB | AAB 0 05 | office | 1.0 | | 17.7 * (5.189 + 5.866 + 0.748 + 2.293 * 1.0) * 1.0 * 0.097 | 24.2 |
+    | AAB | AAB 0 32 | miscellaneous | 1.0 | | 26.99 * (5.339 + 17.798 + 1.033 + 3.257 * 1.0) * 1.0 * 0.097 | 71.80 |
+    | AAB | AAB 0 47 | office | 0.5 | | 18.76 * (5.189 + 5.866 + 0.748 + 2.293 * 1.0) * 0.5 * 0.097 | 12.83 |
+    | CSV | CSV 0 32 | libraries | 1.0 | | 34.51 * (3.952 + 5.104 + 0.069 + 35.594 * 2.8297) * 1.0 * 0.097 | 367.7 |
+    | SOS1 | SOS1 0 32 | archives | 0.75 | | 13.94 * (0.857 + 1.404 + 0.094 + 1.154 * 2.8297) * 0.75 * 0.097 | 5.7 |
+    | AAB | AAB 0 92.1 | miscellaneous | 1.0 | 50 | Override test: given kg_co2eq differs from calculation | 50 |
+    | CCT | CCT 0 01 | office | 1.0 | | 36.62 * (381.421 + 431.142 + 54.965 + 168.571 * 1.0) * 1.0 * 0.097 | 3680.37 |
+
 
 ## Equipment
 
