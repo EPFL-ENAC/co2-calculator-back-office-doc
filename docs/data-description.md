@@ -102,8 +102,24 @@ This guide provides comprehensive data validation schemas for all modules in the
     | subcategory | string | ❌ | - | If the category is `Refrigerants` the subcategory is always specified in the factors used at EPFL. |
     | unit | string | ✅ | - | eg kg |
     | ef_kg_co2eq_per_unit | float | ✅ | 0 ≤ float | e.g. 23'500 (kg CO2 eq / kg for SF6) |
+
+???+ info "test calculation processemissions_factors"
+
+    | category | subcategory | quantity_kg | kg_co2eq | note | expected_result |
+    |----------|-------------|-------------|----------|------|-----------------|
+    | Carbon dioxide (CO2) | | 100 | | | 100 |
+    | Methane (CH4) | | 50 | | | 1350 |
+    | Nitrous oxide (N2O) | | 10 | | | 2730 |
+    | Hydrofluorocarbons (HFCs) | HFC-23 (CHF3) | 5 | | | 73000 |
+    | Hydrofluorocarbons (HFCs) | HFC-125 (CHF2CF3) | 10 | | | 37400 |
+    | Hydrofluorocarbons (HFCs) | HFC-134a (CH2FCF3) | 2 | | | 3060 |
+    | Sulfur hexafluoride (SF6) | | 0.5 | | | 12150 |
+    | Nitrogen trifluoride (NF3) | | 1 | | | 17400 |
+    | Perfluorinated compounds | PFC-14 (CF4) | 3 | | | 22140 |
+    | Fluorinated ethers | HFE-134 (CHF2OCHF2) | 1.5 | | | 9945 |
+    | Carbon dioxide (CO2) | | 50 | 75 | Override test: given kg_co2eq differs from calculation | 75 |
+
     
----
 ## Buildings
 
 ???+ info "building_energycombustions_data.csv"
