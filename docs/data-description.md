@@ -433,6 +433,18 @@ This guide provides comprehensive data validation schemas for all modules in the
     | usage_type | string | ✅ | - | e.g. type of use "text,video,image" |
     | ef_kg_co2eq_per_request | float | ✅ | 0 ≤ float | e.g. "0.05" |
 
+???+ info "test calculation external_ai"
+
+    | provider | usage_type | requests_per_user_per_day | fte_count | note | kg_co2eq | expected_result |
+    |----------|-----------|---------------------------|-----------|------|----------|-----------------|
+    | Claude (Anthropic) | text | 10 | 5 | 5 * 10 * 235 * 0.0075 | | 88.1250 |
+    | ChatGPT (OpenAI) | image | 2 | 3 | 3 * 2 * 235 * 0.3 | | 423.0000 |
+    | Mistral AI | code | 15 | 2 | 2 * 15 * 235 * 0.15 | | 1057.5000 |
+    | Gemini (Google) | text | 5 | 4 | 4 * 5 * 235 * 0.0075 | | 35.2500 |
+    | Copilot (Microsoft) | image | 8 | 1 | 1 * 8 * 235 * 0.3 | | 564.0000 |
+    | Claude (Anthropic) | code | 20 | 2 | 2 * 20 * 235 * 0.15 | | 1410.0000 |
+    | Other | text | 3 | 3 | 3 * 3 * 235 * 0.0075 | override test | 100 | 100 |
+
 ???+ info "external_clouds_data.csv"
 
     | field | type | mandatory | values constraints | example / notes |
