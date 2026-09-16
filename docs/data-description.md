@@ -545,6 +545,18 @@ This guide provides comprehensive data validation schemas for all modules in the
     | municipality | string | ❌ | - | e.g. "Geneva" |
     | keywords | string | ❌ | - | keywords to link the location with the possible different names in the data |
 
+???+ info "test calculation travel_planes"
+
+    | origin_iata | destination_iata | user_institutional_id | departure_date | number_of_trips | cabin_class | note | kg_co2eq | expected_result |
+    |--------------|------------------|----------------------|----------------|-----------------|-------------|------|----------|-----------------|
+    | GVA | CDG | | | 1 | economy | 407.6 km * 0.2906 * 1.35 * 1 | | 159.91 |
+    | GVA | LHR | | | 2 | business | 753.7 km * 0.4471 * 1.35 * 2 | | 909.89 |
+    | GVA | FRA | | | 1 | economy | 425.5 km * 0.2906 * 1.35 * 1 | | 180.14 |
+    | GVA | JFK | | | 1 | business | 6201.1 km * 0.393 * 1.35 * 1 | | 3289.98 |
+    | GVA | LAX | | | 1 | economy | 9509.4 km * 0.1902 * 1.35 * 1 | | 2441.73 |
+    | LHR | JFK | | | 3 | business | 5570.2 km * 0.393 * 1.35 * 3 | | 8817.76 |
+    | GVA | CDG | | | 1 | economy | override test | 150 | 150 |
+
 ???+ info "travel_trains_data.csv"
 
     | field | type | mandatory | values constraints | example / notes |
