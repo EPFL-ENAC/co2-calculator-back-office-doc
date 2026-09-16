@@ -162,6 +162,18 @@ This guide provides comprehensive data validation schemas for all modules in the
         | forest_chips | Plaquettes forestières | Forest chips |
         | wood_logs | Bois bûche | Wood logs |
 
+???+ info "test calculation building_energycombustion"
+
+    | name | unit | quantity | kgco2eq | note | expected_result |
+    |------|------|----------|---------|------|-----------------|
+    | natural_gas | kWh | 100 | | | 24 |
+    | heating_oil | kWh | 50 | | | 16.22 |
+    | biomethane | kWh | 200 | | | 8.88 |
+    | propane | kWh | 75 | | | 20.38 |
+    | pellets | kg | 500 | | | 55.40 |
+    | forest_chips | kg | 1000 | | | 50.30 |
+    | wood_logs | kg | 250 | | | 28.45 |
+    | natural_gas | kWh | 150 | 40 | Override test: given kgco2eq differs from calculation | 40 |
         
 ???+ info "building_rooms_data.csv"
 
