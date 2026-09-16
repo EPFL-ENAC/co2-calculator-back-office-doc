@@ -549,12 +549,12 @@ This guide provides comprehensive data validation schemas for all modules in the
 
     | origin_iata | destination_iata | user_institutional_id | departure_date | number_of_trips | cabin_class | note | kg_co2eq | expected_result |
     |--------------|------------------|----------------------|----------------|-----------------|-------------|------|----------|-----------------|
-    | GVA | CDG | | | 1 | economy | 407.6 km * 0.2906 * 1.35 * 1 | | 159.91 |
-    | GVA | LHR | | | 2 | business | 753.7 km * 0.4471 * 1.35 * 2 | | 909.89 |
-    | GVA | FRA | | | 1 | economy | 425.5 km * 0.2906 * 1.35 * 1 | | 180.14 |
-    | GVA | JFK | | | 1 | business | 6201.1 km * 0.393 * 1.35 * 1 | | 3289.98 |
-    | GVA | LAX | | | 1 | economy | 9509.4 km * 0.1902 * 1.35 * 1 | | 2441.73 |
-    | LHR | JFK | | | 3 | business | 5570.2 km * 0.393 * 1.35 * 3 | | 8817.76 |
+    | GVA | CDG | | | 1 | economy | (407.6 + 95) km * 0.2906 * 1.35 * 1 | | 197.18 |
+    | GVA | LHR | | | 2 | business | (753.7 + 95) km * 0.4471 * 1.35 * 2 | | 1024.57 |
+    | GVA | FRA | | | 1 | economy | (459.2 + 95) km * 0.2906 * 1.35 * 1 | | 217.41 |
+    | GVA | JFK | | | 1 | business | (6201.1 + 95) km * 0.393 * 1.35 * 1 | | 3340.39 |
+    | GVA | LAX | | | 1 | economy | (9509.4 + 95) km * 0.1902 * 1.35 * 1 | | 2466.12 |
+    | LHR | JFK | | | 3 | business | (5540.0 + 95) km * 0.393 * 1.35 * 3 | | 8968.97 |
     | GVA | CDG | | | 1 | economy | override test | 150 | 150 |
 
 ???+ info "travel_trains_data.csv"
@@ -612,6 +612,19 @@ This guide provides comprehensive data validation schemas for all modules in the
     | municipality | string | ❌ | - | e.g. "Geneva" |
     | keywords | string | ❌ | - | keywords to link the location with the possible different names in the data |
 
+???+ info "test calculation travel_trains"
+
+    | origin_name | origin_country_code | destination_name | destination_country_code | user_institutional_id | departure_date | number_of_trips | cabin_class | note | kg_co2eq | expected_result |
+    |---|---|---|---|---|---|---|---|---|---|---|
+    | Genève | CH | Basel SBB | CH | | | 1 | | (184.9 × 1.2) km × 0.00979 (CH) × 1 | | 2.17 |
+    | Basel SBB | CH | Aachen Hbf | DE | | | 2 | | (374.3 × 1.2) km × 0.0719 (DE) × 2 | | 64.59 |
+    | Genève | CH | Paris | FR | | | 1 | | (410.6 × 1.2) km × 0.0269 (FR) × 1 | | 13.26 |
+    | Milano | IT | Aachen Hbf | DE | | | 1 | | (630.6 × 1.2) km × 0.0719 (DE) × 1 | | 54.41 |
+    | Genève | CH | Lyon | FR | | | 3 | | (113.0 × 1.2) km × 0.0269 (FR) × 3 | | 10.95 |
+    | Basel SBB | CH | Milano | IT | | | 2 | | (260.0 × 1.2) km × 0.0491 (IT) × 2 | | 30.64 |
+    | Genève | CH | Aachen Hbf | DE | | | 1 | | (506.9 × 1.2) km × 0.0719 (DE) × 1, override test | 40 | 40 |
+    | Genève | CH | London | GB | | | 1 | | (980.0 × 1.2) km × 0.0775 (RoW) × 1 | | 90.78 |
+    
 ---
 
 
