@@ -476,7 +476,18 @@ This guide provides comprehensive data validation schemas for all modules in the
     | currency | string | ✅ | in `chf, eur, usd` format, not `None`. | for EPFL -> eur |
     | ef_kg_co2eq_per_currency | float | ✅ | 0 ≤ float | e.g. 0.8 |
 
----
+???+ info "test calculation external_clouds"
+
+    | service_type | provider | spent_amount | currency | note | kg_co2eq | expected_result |
+    |--------------|----------|--------------|----------|------|----------|-----------------|
+    | storage | AWS | 100 | eur | 100 * 0.259 | | 25.90 |
+    | compute | GCP | 500 | eur | 500 * 0.259 | | 129.50 |
+    | storage | Azure | 250 | chf | 250 * 1.0672 * 0.259 | | 69.10 |
+    | compute | OVH | 300 | chf | 300 * 1.0672 * 0.259 | | 82.92 |
+    | storage | AWS | 1000 | usd | 1000 * 0.8849 * 0.259 (USD to EUR conversion) | | 229.19 |
+    | compute | GCP | 150 | eur | 150 * 0.259 | | 38.85 |
+    | storage | OVH | 200 | chf | 200 * 1.0672 * 0.259, override test | 50 | 50 |
+    ---
 
 ## Travel
 
