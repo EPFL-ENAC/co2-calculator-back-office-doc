@@ -386,6 +386,19 @@ This guide provides comprehensive data validation schemas for all modules in the
     | name | string | ✅ | non-empty string | e.g. "Liquid nitrogen" |
     | ef_kg_co2eq_per_kg | float | ✅ | 0 ≤ float | e.g. 0.1 |
 
+
+???+ info "test calculation purchases_centralized"
+
+    | name | unit | annual_consumption | coef_to_kg | note | kg_co2eq | expected_result |
+    |------|------|-------------------|-----------|------|----------|-----------------|
+    | liquid nitrogen | liters | 500 | 0.808 | 500 * 0.808 * 0.1 | | 40.40 |
+    | liquid nitrogen | liters | 250 | 0.808 | 250 * 0.808 * 0.1 | | 20.20 |
+    | liquid nitrogen | kg | 100 | 1.0 | 100 * 1.0 * 0.1 | | 10.00 |
+    | liquid nitrogen | liters | 750 | 0.808 | 750 * 0.808 * 0.1 | | 60.60 |
+    | liquid nitrogen | kg | 80 | 1.0 | 80 * 1.0 * 0.1 | | 8.00 |
+    | liquid nitrogen | liters | 200 | 0.808 | override test | 15 | 15 |
+
+
 ---
 
 ## External Clouds & AI
