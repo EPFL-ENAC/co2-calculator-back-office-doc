@@ -288,6 +288,19 @@ This guide provides comprehensive data validation schemas for all modules in the
     | standby_power_w | float | ✅ | ≥ 0 | e.g. 23 |
     | ef_kg_co2eq_per_kwh | float | ✅ | ≥ 0 | e.g. swiss mix 0.125 |
 
+
+???+ info "test calculation equipment"
+
+    | equipment_id | name | equipment_class | sub_class | active_usage_hours_per_week | standby_usage_hours_per_week | kgco2eq | note | expected_result |
+    |---|---|---|---|---|---|---|---|---|
+    | EQ001 | Power supplies | Power supplies | | 24 | 144 | | (100.0 * 24 + 0.0 * 144) / 1000 * 47 * 0.097 | 10.94 |
+    | EQ002 | Amplifiers | Amplifiers | | 24 | 144 | | (20.0 * 24 + 10.0 * 144) / 1000 * 47 * 0.097 | 8.75 |
+    | EQ003 | Large Motor | Moteurs | Large Motor/Generator | 24 | 144 | | (64000.0 * 24 + 100.0 * 144) / 1000 * 47 * 0.097 | 7068.27 |
+    | EQ004 | Milling machine | Milling machine | | 24 | 144 | | (2300.0 * 24 + 30.0 * 144) / 1000 * 47 * 0.097 | 271.35 |
+    | EQ005 | Arc Welding | Press | Arc Welding Power Sources | 24 | 144 | | (3500.0 * 24 + 30.0 * 144) / 1000 * 47 * 0.097 | 402.65 |
+    | EQ006 | Old -80C freezer | Lab Freezer / Frigde | Old -80°C freezers (>12yo) | 168 | 0 | 900 | Override test: given kgco2eq differs from calculation | 900 |
+    | EQ007 | Servers | Servers | | 70 | 98 | | (500.0 * 70 + 100.0 * 98) / 1000 * 47 * 0.097 | 204.24 |
+
 ---
 
 ## Purchases
