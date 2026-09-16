@@ -346,6 +346,17 @@ This guide provides comprehensive data validation schemas for all modules in the
     | purchase_additional_code | string | ❌ | - | e.g. NACRES code, optional because for EPFL we add a line per UNSPSC with the average to be used for purchases added by the user |
     | ef_kg_co2eq_per_currency | float | ✅ | 0 ≤ float | e.g. 0.1 |
 
+???+ info "test calculation purchases_common"
+
+    | name | supplier | quantity | total_spent_amount | currency | purchase_institutional_code | purchase_institutional_description | purchase_additional_code | note | kg_co2eq | expected_result |
+  |------|----------|----------|-------------------|----------|------------------------------|-----------------------------------|--------------------------|------|----------|-----------------|
+  | name 1 | supplier 1 | 1 | 168.639| chf| 27112800| | VA03| | | 0.061372 |
+  | name 2 | supplier 2 | 1 | 537.190| chf| B| KC01| | | 0.151509 |
+  | name 3 | supplier 1 | 3.2 | 7.86| chf| 31162800| KE31| | | 0.002574 |
+  | name 4 | supplier 2 | 1 | 100| chf| 10121700| | here we use the UNSPSC factor, 100 * 1.067 / 1.173 * 0.88 | | 80.048|
+  | name 5 | supplier 1 | 1.3 | 585| eur | B| NA12| | | 0.797953964194373|
+  | name 6 | supplier 2 | 2.7 | 63.46| eur | 41120000| OA21| override test| 10| 10|  
+
 ???+ info "purchases_centralized_data.csv"
 
     | field | type | mandatory | values constraints | example / notes |
