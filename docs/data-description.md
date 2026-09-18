@@ -27,7 +27,7 @@ This guide provides comprehensive data validation schemas for all modules in the
 - Rows that don't meet mandatory field requirements or value constraints will be ignored during upload.
 - Warning messages will be displayed when data doesn't match factor files.
 - Date formats must follow ISO standard (YYYY-MM-DD).
-- For research facilities only, a button 'compute missing factors' needs to be pushed in order to calculate the factors for all research facilities for which the info is not given via the .csv. This needs to be done after the rest of the modules are completed. If not done, the contribution to co2 emissions of these research facilities will be 0. 
+- For research facilities only, a button 'compute missing factors' needs to be pushed in order to calculate the factors for all research facilities for which the info is not given via the .csv. This needs to be done after the rest of the modules are completed. If not done, the contribution to co2 emissions of these research facilities will be 0. The modules contributing to research facilities carbon footprint are: process emissions, buildings, equipment and purchases. If some of the input data, reference or factors for these modules is updated, the button needs to be pushed again in order to update the results for research facilities accordingly. 
 
 ---
 
